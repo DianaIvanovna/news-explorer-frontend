@@ -1,0 +1,9 @@
+@import url('../search/search.css');
+@import url('../header/header.css');
+@import url("../background/background.css");
+@import url("../author/author.css");
+@import url("../footer/footer.css");
+
+.main{
+  max-width: 1440px;
+}

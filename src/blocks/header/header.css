@@ -1,0 +1,13 @@
+@import url("./__logo/header__logo.css");
+@import url("./__link/header__link.css");
+@import url("./__button/header__button.css");
+
+.header{
+  display:flex;
+  justify-content: space-around;
+  width:100%;
+  background: rgba(255, 255, 255, 0.01);
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+  padding-top:19px;
+  padding-bottom: 13px;
+}

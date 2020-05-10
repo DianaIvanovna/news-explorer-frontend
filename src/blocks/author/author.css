@@ -1,0 +1,9 @@
+@import url("./__info/author__info.css");
+@import url("./__photo/author__photo.css");
+@import url("./__subtitle/author__subtitle.css");
+@import url("./__title/author__title.css");
+
+.author{
+  display:flex;
+  margin-bottom: 80px;
+}

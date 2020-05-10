@@ -1,0 +1,12 @@
+@import url("./_active/header__link_active.css");
+@import url("./_none/header__link_none.css");
+
+.header__link{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  margin-right: 34px;
+  text-decoration: none;
+  }

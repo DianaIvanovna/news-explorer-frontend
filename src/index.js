@@ -1,2 +1,3 @@
-import "./style.css";
-console.log("dsfd");
+import './style.css';
+
+console.log('dsfd');
