@@ -1,0 +1,21 @@
+.result__button{
+  border: 1px solid #FFFFFF;
+  background: #FFFFFF;
+  border-radius: 80px;
+  width: 288px;
+  height: 64px;
+  margin: 0px auto;
+  margin-bottom: 80px;
+
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1A1B22;
+}
+
+.result__button:hover{
+  opacity: 0.9;
+}

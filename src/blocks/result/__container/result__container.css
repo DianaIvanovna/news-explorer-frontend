@@ -1,0 +1,7 @@
+.result__container{
+  margin: 0px 82px 104px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
