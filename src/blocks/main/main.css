@@ -1,15 +1,5 @@
-@import url('../search/search.css');
-@import url('../header/header.css');
-@import url("../background/background.css");
-@import url("../author/author.css");
-@import url("../footer/footer.css");
-@import url("../circle-preloader/circle-preloader.css");
-@import url("../result/result.css");
-@import url("../card/card.css");
-@import url("../waiting/waiting.css");
-@import url("../waiting-error/waiting-error.css");
-@import url("../popup/popup.css");
-
 .main{
   max-width: 1440px;
+  margin:0px auto;
 }
+

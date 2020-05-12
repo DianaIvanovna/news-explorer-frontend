@@ -8,7 +8,9 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 // создаем переменную для development-сборки
 module.exports = {
-  entry: { main: './src/index.js' },
+  entry: {
+    main: './src/index.js',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
@@ -50,7 +52,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({ //
+    new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({

@@ -8,3 +8,13 @@
   display: flex;
   align-items: center;
 }
+
+@media screen and (max-width:600px)
+{
+  .header__logo
+  {
+    position: absolute;
+    top: 16px;
+    left:calc(10%/2);
+  }
+}

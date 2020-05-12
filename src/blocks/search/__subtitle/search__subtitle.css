@@ -6,4 +6,17 @@
   line-height: 24px;
   color: #FFFFFF;
   margin-top: 32px;
+  width:500px;
+}
+
+@media screen and (max-width:768px){
+  .search__subtitle{
+    margin-top: 16px;
+    width:452px;
+  }
+}
+@media screen and (max-width:450px){
+  .search__subtitle{
+    width:100%;
+  }
 }

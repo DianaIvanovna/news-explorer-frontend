@@ -4,6 +4,7 @@
   border-radius: 100px;
   border: none;
   width:168px;
+  padding: 18px 57px 22px;
 
   font-family: Roboto;
   font-style: normal;
@@ -12,6 +13,20 @@
   line-height: 24px;
   color: #FFFFFF;
 
-  position: relative;
-  right: 168px;
+  position: absolute;
+  right: 0px;
+  top:0px;
+}
+
+@media screen and (max-width:768px){
+  .search__button{
+    padding: 15px 50px 17px 49px;
+  }
+}
+@media screen and (max-width:600px){
+  .search__button{
+    position: static;
+    width:100%;
+    margin-top:16px;
+  }
 }
