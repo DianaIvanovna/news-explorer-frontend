@@ -2,3 +2,6 @@
   color: #FFFFFF;
   border-bottom: 2px solid white;
 }
+.header_active .header__link_active{
+  border-bottom: none;
+}

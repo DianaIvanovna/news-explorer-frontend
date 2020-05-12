@@ -3,6 +3,14 @@
   width: 464px;
   height: 464px;
   margin-top:80px;
-  margin-left:104px;
   margin-right: 56px;
+}
+@media screen and (max-width:900px)
+{
+  .author__photo{
+    width: 232px;
+    height: 232px;
+    margin-right: 32px;
+    margin-top:61px;
+  }
 }

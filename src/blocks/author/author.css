@@ -6,4 +6,25 @@
 .author{
   display:flex;
   margin-bottom: 80px;
+  padding: 0px 104px;
+}
+@media screen and (max-width:900px)
+{
+  .author{
+    margin-bottom: 61px;
+    padding: 0px 40px;
+  }
+}
+@media screen and (max-width:600px)
+{
+  .author{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width:450px)
+{
+  .author{
+    padding: 0px 16px;
+  }
 }
