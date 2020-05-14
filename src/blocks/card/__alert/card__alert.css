@@ -19,3 +19,13 @@
   right: 69px;
   top:24px;
 }
+
+@media screen and (max-width:900px)
+{
+  .card__alert{
+    padding: 14px 2% 14px 2%;
+    right: 55px;
+    top:8px;
+
+  }
+}

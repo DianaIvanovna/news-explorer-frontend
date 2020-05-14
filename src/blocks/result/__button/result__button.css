@@ -19,3 +19,20 @@
 .result__button:hover{
   opacity: 0.9;
 }
+
+@media screen and (max-width:900px)
+{
+  .result__button{
+    width: 240px;
+    height: 58px;
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width:500px)
+{
+  .result__button{
+    width: 288px;
+    height: 56px;
+    margin:0px auto 32px;
+  }
+}

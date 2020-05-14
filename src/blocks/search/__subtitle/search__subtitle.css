@@ -9,14 +9,14 @@
   width:500px;
 }
 
-@media screen and (max-width:768px){
+@media screen and (max-width:768px)and (min-width:500px){
   .search__subtitle{
     margin-top: 16px;
     width:452px;
   }
 }
-@media screen and (max-width:450px){
+@media screen and (max-width:500px){
   .search__subtitle{
-    width:100%;
+    width:80%;
   }
 }

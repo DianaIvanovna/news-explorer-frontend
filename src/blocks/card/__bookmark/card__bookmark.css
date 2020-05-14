@@ -4,3 +4,12 @@
   right:24px;
   top:24px;
 }
+
+
+@media screen and (max-width:900px)
+{
+  .card__bookmark{
+    right:8px;
+    top:8px;
+  }
+}
