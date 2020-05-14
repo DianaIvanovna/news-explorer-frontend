@@ -1,0 +1,13 @@
+.error_registration{
+  display: block;
+  top:30px;
+  left:28%;
+}
+
+@media screen and (max-width:768px)
+{
+  .error_registration{
+
+    left:25%;
+  }
+}

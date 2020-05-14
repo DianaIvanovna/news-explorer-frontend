@@ -1,5 +1,6 @@
 @import url("./_active/header__link_active.css");
 @import url("./_none/header__link_none.css");
+@import url("./_inactive/header__link_inactive.css");
 
 .header__link{
   font-family: Roboto;

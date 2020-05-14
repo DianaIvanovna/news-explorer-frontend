@@ -16,6 +16,7 @@
   position: absolute;
   right: 0px;
   top:0px;
+  outline:none;
 }
 
 .search__button:hover{

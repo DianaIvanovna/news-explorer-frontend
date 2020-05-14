@@ -1,0 +1,16 @@
+@import url("./_registration/error_registration.css");
+.error
+{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    position: relative;
+
+    color: #FF0000;
+}
+.error:first-of-type
+{
+    top: -20px;
+}

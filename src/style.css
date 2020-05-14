@@ -11,6 +11,7 @@
 @import url("./blocks/waiting-error/waiting-error.css");
 @import url("./blocks/popup/popup.css");
 @import url("./vendor/normalize.css");
+@import url("./blocks/error/error.css");
 
 body{
   margin: 0px;
