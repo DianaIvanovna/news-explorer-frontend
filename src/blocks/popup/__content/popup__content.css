@@ -8,4 +8,12 @@
   padding: 34px 36px;
 }
 
-
+@media screen and (max-width:448px)
+{
+  .popup__content {
+    padding: 34px 36px 30vh;
+  }
+  .popup_registration .popup__content {
+    padding: 34px 36px 17vh;
+  }
+}
