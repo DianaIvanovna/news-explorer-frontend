@@ -10,3 +10,19 @@
 
   margin-left:27px;
 }
+@media screen and (max-width:900px){
+  .footer__link{
+    margin-left:10px;
+  }
+}
+@media screen and (max-width:650px){
+  .footer__link{
+    margin:0px;
+  }
+  .footer__link:first-of-type{
+    margin:0px 0px 30px;
+  }
+  .footer__icons .footer__link{
+    margin-left:27px;
+  }
+}
