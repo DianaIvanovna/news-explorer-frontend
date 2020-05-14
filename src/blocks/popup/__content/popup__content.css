@@ -16,4 +16,7 @@
   .popup_registration .popup__content {
     padding: 34px 36px 17vh;
   }
+  .popup_success .popup__content{
+    padding: 34px 36px 70vh;
+  }
 }

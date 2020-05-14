@@ -48,20 +48,17 @@
       </div>
     </div>
 
-  <!--при нажатии на импут убери голубую обводку-->
-
   <!-- РУЗУЛЬТАТЫ ПОИСКА -->
-
    <section class="result">
     <h1 class="result__header">Результаты поиска</h1>
 
     <div class="result__container">
       <!-- карточки с новостями -->
-      <div class="card"">
+      <div class="card">
         <img src="<%=require('./images/image_08.jpg').default%>" alt="" class="card__image">
         <svg class= "card__bookmark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="40" height="40" rx="8" fill="white"/>
-          <path d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z" stroke="#B6BCBF" stroke-width="2"/>
+          <path class ="card__bookmark_1"d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z" />
         </svg>
         <p class="card__alert">Войдите, чтобы сохранять статьи</p>
         <p class="card__date">2 августа, 2019</p>
@@ -69,36 +66,34 @@
         <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
         <p class="card__sourse">Лента.ру</p>
       </div>
-      <div class="card"">
+      <div class="card">
         <img src="<%=require('./images/image_08.jpg').default%>" alt="" class="card__image">
         <svg class= "card__bookmark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="40" height="40" rx="8" fill="white" />
-          <path d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z" stroke="#2F71E5" stroke-width="2" fill="#2F71E5"/>
+          <path d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z"/>
         </svg>
-
-        <!--Чтобы поменять цвет, нужно изменить stroke и fill на значение  #2F71E5 -->
         <p class="card__date">2 августа, 2019</p>
         <h3 class="card__title">Национальное достояние – парки</h3>
         <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
         <p class="card__sourse">Лента.ру</p>
       </div>
-      <div class="card"">
+      <div class="card">
         <img src="<%=require('./images/image_08.jpg').default%>" alt="" class="card__image">
-        <svg class= "card__bookmark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class= "card__bookmark card__bookmark_active" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="40" height="40" rx="8" fill="white"/>
-          <path d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z" stroke="#1A1B22" stroke-width="2"/>
-        </svg><!-- Чтобы сделать черным нужно поменять stroke на"#1A1B22" -->
+          <path d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z" />
+        </svg>
         <p class="card__alert">Войдите, чтобы сохранять статьи</p>
         <p class="card__date">2 августа, 2019</p>
         <h3 class="card__title">Национальное достояние – парки</h3>
         <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
         <p class="card__sourse">Лента.ру</p>
       </div>
-      <div class="card"">
+      <div class="card">
         <img src="<%=require('./images/image_08.jpg').default%>" alt="" class="card__image">
         <svg class= "card__bookmark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="40" height="40" rx="8" fill="white"/>
-          <path d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z" stroke="#B6BCBF" stroke-width="2"/>
+          <path d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z" />
         </svg>
         <p class="card__alert">Войдите, чтобы сохранять статьи</p>
         <p class="card__date">2 августа, 2019</p>
@@ -109,20 +104,18 @@
     </div>
     <button class="result__button">Показать ещё</button>
    </section>
-
   <!-- РУЗУЛЬТАТЫ ПОИСКА -->
 
   <!-- ПРЕЛОУДЕР -->
- <!--   <section class="waiting">
+    <section class="waiting">
       <div class="waiting__loading">
         <i class="circle-preloader"></i>
         <p class="waiting__text">Идет поиск новостей...</p>
       </div>
-    </section>-->
+    </section>
   <!-- ПРЕЛОУДЕР -->
 
   <!-- НИЧЕГО НЕ НАЙДЕНО -->
-  <!--
     <section class="waiting-error">
       <svg class="waiting-error__image" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="43" cy="43" r="36.5" stroke="#D1D2D6"/>
@@ -135,7 +128,6 @@
         <p class="waiting-error__text">К сожалению по вашему запросу
         ничего не найдено.</p>
     </section>
--->
   <!-- НИЧЕГО НЕ НАЙДЕНО -->
 
 
@@ -159,7 +151,7 @@
   </div>
 
   <!--ПОПАП ВХОД-->
-    <div class="popup popup_is-opened">
+    <div class="popup ">
       <div class="popup__content ">
         <img src="<%=require('./images/close.svg').default%>"alt="" class="popup__close">
         <h3 class="popup__title">Вход</h3>
@@ -178,11 +170,9 @@
         </form>
       </div>
     </div>
-
   <!--ПОПАП ВХОД-->
 
   <!--ПОПАП РЕГИСТРАЦИЯ-->
-
   <div class="popup popup_registration ">
     <div class="popup__content">
       <img src="<%=require('./images/close.svg').default%>"alt="" class="popup__close">
@@ -207,11 +197,9 @@
       </form>
     </div>
   </div>
-
   <!--ПОПАП РЕГИСТРАЦИЯ-->
 
   <!--УСПЕШНАЯ РЕГИСТРАЦИЯ-->
-  <!--
   <div class="popup popup_success">
     <div class="popup__content">
       <img src="<%=require('./images/close.svg').default%>"alt="" class="popup__close">
@@ -219,7 +207,6 @@
       <button type="button" class="popup__toggle-link popup__toggle-link_enter">Выполнить вход</button>
     </div>
   </div>
-  -->
   <!--УСПЕШНАЯ РЕГИСТРАЦИЯ-->
 
   <script src="<%= htmlWebpackPlugin.files.js %>"></script>

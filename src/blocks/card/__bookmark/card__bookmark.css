@@ -1,10 +1,26 @@
-.card__bookmark{
+.card__bookmark {
   box-sizing: border-box;
   position: absolute;
   right:24px;
   top:24px;
+  fill: white;
+}
+.card__bookmark path {
+  stroke-width:2;
+  fill: white;
+  stroke:#B6BCBF;
+}
+.card__bookmark:hover path {
+  stroke: #1A1B22;
 }
 
+.card__bookmark_active path {
+  fill: #2F71E5;
+  stroke: #2F71E5;
+}
+.card__bookmark_active:hover path {
+  stroke: #2F71E5;
+}
 
 @media screen and (max-width:900px)
 {
