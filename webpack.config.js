@@ -10,6 +10,7 @@ const isDev = process.env.NODE_ENV === 'development';
 module.exports = {
   entry: {
     main: './src/index.js',
+    savedArticles: './src/pages/savedArticles/savedArticles.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -53,7 +54,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: 'style.[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
@@ -67,6 +68,11 @@ module.exports = {
       inject: false,
       template: './src/index.html',
       filename: 'index.html',
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      template: './src/pages/savedArticles/savedArticles.html',
+      filename: 'savedArticles.html',
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({

@@ -1,0 +1,21 @@
+.card__bookmark_trash {
+  box-sizing: border-box;
+  position: absolute;
+  right:24px;
+  top:24px;
+  fill: white;
+}
+.card__bookmark_trash path {
+  fill:#B6BCBF;
+}
+.card__bookmark_trash:hover path {
+  fill: #1A1B22;
+}
+
+@media screen and (max-width:900px)
+{
+  .card__bookmark_trash{
+    right:8px;
+    top:8px;
+  }
+}

@@ -1,0 +1,10 @@
+.header__button_savedArticles .header__svg{
+  fill:#1A1B22;
+}
+
+.header__svg{
+  fill:white;
+}
+.header_active .header__svg{
+  fill:white;
+}

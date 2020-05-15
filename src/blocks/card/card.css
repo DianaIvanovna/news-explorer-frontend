@@ -5,6 +5,7 @@
 @import url("./__bookmark/card__bookmark.css");
 @import url("./__date/card__date.css");
 @import url("./__alert/card__alert.css");
+@import url("./__keyword/card__keyword.css");
 
 .card{
   position: relative;

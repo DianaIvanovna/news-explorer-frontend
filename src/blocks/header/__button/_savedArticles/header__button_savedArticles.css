@@ -1,0 +1,17 @@
+.header__button_savedArticles{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: rgb(0,0,0,0);
+  border: 1px solid #1A1B22;
+  box-sizing: border-box;
+  border-radius: 100px;
+  outline:none;
+}
+.header_active .header__button_savedArticles{
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+

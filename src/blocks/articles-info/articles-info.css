@@ -1,0 +1,21 @@
+@import url("./__content/articles-info__content.css");
+@import url("./__key/articles-info__key.css");
+@import url("./__subtitle/articles-info__subtitle.css");
+@import url("./__title/articles-info__title.css");
+@import url("./__words/articles-info__words.css");
+.articles-info{
+  margin: 40px 104px 56px ;
+}
+
+@media screen and (max-width:900px)
+{
+  .articles-info{
+    margin: 24px 40px 32px ;
+  }
+}
+@media screen and (max-width:500px)
+{
+  .articles-info{
+    margin: 8px 16px 32px ;
+  }
+}
