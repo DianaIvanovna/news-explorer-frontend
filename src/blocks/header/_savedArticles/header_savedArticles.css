@@ -1,5 +1,15 @@
 .header_savedArticles{
   color: #1A1B22;
   box-shadow: inset 0px -1px 0px #D1D2D6;
+  background-color: white;
 
+}
+
+@media screen and (max-width:600px)
+{
+  .header_savedArticles
+  {
+    position: sticky;
+    top:0px;
+  }
 }

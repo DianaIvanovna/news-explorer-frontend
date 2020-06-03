@@ -1,3 +1,5 @@
+@import url("./vendor/normalize.css");
+@import url("./vendor/fonts.css");
 @import url("./blocks/main/main.css");
 @import url('./blocks/search/search.css');
 @import url('./blocks/header/header.css');
@@ -10,7 +12,6 @@
 @import url("./blocks/waiting/waiting.css");
 @import url("./blocks/waiting-error/waiting-error.css");
 @import url("./blocks/popup/popup.css");
-@import url("./vendor/normalize.css");
 @import url("./blocks/error/error.css");
 
 body{

@@ -9,8 +9,9 @@
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
     padding-bottom: 24px;
-    position: absolute;
+    position: fixed;
     top:0px;
     left:0px;
+    z-index: 3;
   }
 }
