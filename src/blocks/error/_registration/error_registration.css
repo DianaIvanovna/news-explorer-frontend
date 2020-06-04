@@ -1,4 +1,11 @@
 .error_registration{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  position: relative;
+  color: #FF0000;
   display: block;
   top:30px;
   left:28%;

@@ -1,4 +1,5 @@
 @import url("./_registration/error_registration.css");
+@import url("./__name/error__name.css");
 .error
 {
     font-family: Inter;
@@ -7,10 +8,11 @@
     font-size: 12px;
     line-height: 15px;
     position: relative;
+    top: -20px;
 
     color: #FF0000;
 }
-.error:first-of-type
+.error:last-of-type
 {
-    top: -20px;
+  top: 0px;
 }
