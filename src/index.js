@@ -2,14 +2,23 @@ import './style.css';
 import Popup from './js/popap';
 import FormValidation from './js/formValidation';
 
+// КОММЕНТАРИИ К БЛОКУ ХЭДЕР
+// 1. Пользователь зашел в аккаунт
+// кнопка главная - всегда есть
+// сохраненные статьи
+// Выход из аккаунта
+// кнопка зарегистрироваться скрыта классом header__button_none
+// 2. Пользователь не зашел в аккаунт
+// кнопка главная - всегда есть
+// кнопка зарегистрироваться - убрать класс header__button_none
+// кнопка сохранненые статьи и Выход из аккаунта скрыты классом header__button_none
 
-// Header может быть в двух состояниях: когда пользователей зашел в свой аккаунт и нет.
-// 1. Пользователь зашел в свой аккаунт. Должна быть кнопка Главная, Сохранненые статьи и выход из
-//  2. Пользователь не зашел. Должна быть кнопка Зарегистрироваться, для этого кнопке с классом
-// header__button_auth  нужно убрать класс  header__button_none, а остальным,
-// кроме кнопки главная, длбавить.
-// Т е ссылки Сохранненые статьи добавить класс  header__link_none
 
+// КОММЕНТАРИИ К БЛОКУ РЕЗУЛЬТАТЫ ПОИСКА
+// Для подсказок я еще не сделала функций.
+// Я буду просто через js добавлять элемент:
+// <p class="card__alert">Войдите, чтобы сохранять статьи</p>
+// Аналогично со страницей Сохраненые статьи
 
 // Функция сохранить новость
 (function () {
@@ -60,4 +69,21 @@ import FormValidation from './js/formValidation';
   const formReg = document.querySelector('.popup__form_registration');
   // eslint-disable-next-line
   const formRegistration = new FormValidation(formReg);
+}());
+
+// функция для открытия подменю в мобильной версии
+(function () {
+  const headerMenu = document.querySelector('.header__menu');
+  const headerMenuClose = document.querySelector('.header__menu_close');
+  const header = document.querySelector('.header');
+  const headerBackground = document.querySelector('.background__mobile');
+
+  headerMenu.addEventListener('click', (() => {
+    header.classList.add('header_active');
+    headerBackground.classList.add('background__mobile_active');
+  }));
+  headerMenuClose.addEventListener('click', (() => {
+    header.classList.remove('header_active');
+    headerBackground.classList.remove('background__mobile_active');
+  }));
 }());

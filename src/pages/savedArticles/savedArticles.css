@@ -4,6 +4,7 @@
 @import url("../../blocks/card/card.css");
 @import url("../../blocks/result/result.css");
 @import url("../../blocks/footer/footer.css");
+@import url("../../blocks/background/background.css");
 body{
   margin: 0px;
 }
