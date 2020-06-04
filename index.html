@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Поиск новостей">
+  <meta name="keywords" content="новости, поисковик, поиск новостей, поиск статей">
+  <meta name="author" content="Диана Гарбуз">
+  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+  <link rel="stylesheet" href="style.11ca0402250f2d8eac93.css">
+  <title>NewsExplorer</title>
+</head>
+<body>
+  <div class="main">
+    <div class="background background__header-active">
+      <div class="background__mobile"></div>
+      <header class="header header_main ">
+        <span class="header__logo">NewsExplorer</span>
+        <svg class="header__menu_close" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.414 12l5.293 5.293-1.414 1.414-6-6a1 1 0 010-1.414l6-6 1.414 1.414L13.414 12z" fill="#fff"/><path d="M10.879 12l-5.293 5.293L7 18.707l6-6a1 1 0 000-1.414l-6-6-1.414 1.414L10.879 12z" fill="#fff"/></svg>
+        <svg class="header__menu" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h16v2H4zM4 14h16v2H4z"/></svg>
+        <nav class="header__nav">
+          <a href="./" class="header__link header__link_active">Главная</a>
+          <a href="./savedArticles.html" class="header__link header__link_inactive">Сохранённые статьи</a>
+
+          <button class="header__button header__button_auth header__button_none">Авторизоваться</button>
+          <button class="header__button header__button_logout ">
+            <span class="header__button_user button">Diana</span>
+            <svg width="18" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="header__svg" clip-rule="evenodd" d="M6 2H2v12h4v2H2a2 2 0 01-2-2V2a2 2 0 012-2h4v2zm7.586 7l-4.293 4.134 1.414 1.362 6.707-6.459-6.707-6.459L9.293 2.94l4.293 4.134H4V9h9.586z"/></svg>
+          </button>
+        </nav>
+      </header>
+
+     <section class="search">
+        <h1 class="search__title">Что в мире творится?</h1>
+        <p class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+        <div class="search__field">
+          <input type="search" class=" search__input"  placeholder="Введите тему новости">
+          <button class="search__button">Искать</button>
+        </div>
+    </section >
+  </div>
+
+    <div class="author">
+      <img src="./images/автор.jpg" alt="фото автора" class="author__photo">
+      <div class="author__info">
+        <h2 class="author__title">Об авторе</h2>
+        <p class="author__subtitle">Добрый день. Меня зовут Диана Гарбуз, я начинающий Веб-разработчик. Последний год прохожу курсы Веб-разработчика от Яндекс.Практикума, а это моя дипломная работа.</p>
+        <p class="author__subtitle"> За все это время я научилась верстать сайты адаптивно, валидно и кроссбраузерно, знаю нативный Java-script, есть опыт работы с Git и Webpack'ом, владею БЭМ, а так же немного погрузилась в бэкенд. </p>
+      </div>
+    </div>
+
+  <!-- РУЗУЛЬТАТЫ ПОИСКА -->
+   <section class="result">
+    <h1 class="result__header">Результаты поиска</h1>
+
+    <div class="result__container">
+      <!-- карточки с новостями -->
+      <div class="card">
+        <img src="./images/image_08.jpg" alt="фото новости" class="card__image">
+        <svg class= "card__bookmark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="8" fill="white"/>
+          <path class ="card__bookmark_1" d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z" />
+        </svg>
+        <p class="card__alert">Войдите, чтобы сохранять статьи</p>
+        <p class="card__date">2 августа, 2019</p>
+        <h3 class="card__title">Национальное достояние – парки</h3>
+        <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+        <p class="card__sourse">Лента.ру</p>
+      </div>
+      <div class="card">
+        <img src="./images/image_08.jpg" alt="фото новости" class="card__image">
+        <svg class= "card__bookmark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="8" fill="white" />
+          <path d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z"/>
+        </svg>
+        <p class="card__date">2 августа, 2019</p>
+        <h3 class="card__title">Национальное достояние – парки</h3>
+        <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+        <p class="card__sourse">Лента.ру</p>
+      </div>
+      <div class="card">
+        <img src="./images/image_08.jpg" alt="фото новости" class="card__image">
+        <svg class= "card__bookmark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="8" fill="white"/>
+          <path d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z" />
+        </svg>
+        <p class="card__alert">Войдите, чтобы сохранять статьи</p>
+        <p class="card__date">2 августа, 2019</p>
+        <h3 class="card__title">Национальное достояние – парки</h3>
+        <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+        <p class="card__sourse">Лента.ру</p>
+      </div>
+      <div class="card">
+        <img src="./images/image_08.jpg" alt="" class="card__image">
+        <svg class= "card__bookmark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="8" fill="white"/>
+          <path d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z" />
+        </svg>
+        <p class="card__alert">Войдите, чтобы сохранять статьи</p>
+        <p class="card__date">2 августа, 2019</p>
+        <h3 class="card__title">Национальное достояние – парки</h3>
+        <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+        <p class="card__sourse">Лента.ру</p>
+      </div>
+    </div>
+    <button class="result__button">Показать ещё</button>
+   </section>
+  <!-- РУЗУЛЬТАТЫ ПОИСКА -->
+
+  <!-- ПРЕЛОУДЕР -->
+    <section class="waiting">
+      <div class="waiting__loading">
+        <i class="circle-preloader"></i>
+        <h2 class="waiting__text">Идет поиск новостей...</h2>
+      </div>
+    </section>
+  <!-- ПРЕЛОУДЕР -->
+
+  <!-- НИЧЕГО НЕ НАЙДЕНО -->
+    <section class="waiting-error">
+      <svg class="waiting-error__image" width="96" height="96" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="43" cy="43" r="36.5" stroke="#D1D2D6"/><path d="M69 69l19.5 19.5M58.328 55.959c-3.667-4.261-9.1-6.96-15.164-6.96-6.063 0-11.496 2.699-15.164 6.96" stroke="#D1D2D6"/><circle cx="55.5" cy="33.5" r="1.5" fill="#D1D2D6"/><circle cx="30.5" cy="33.5" r="1.5" fill="#D1D2D6"/></svg>
+        <h3 class="waiting-error__title">Ничего не найдено</h3>
+        <p class="waiting-error__text">К сожалению по вашему запросу
+        ничего не найдено.</p>
+    </section>
+  <!-- НИЧЕГО НЕ НАЙДЕНО -->
+
+
+  <footer class="footer">
+      <p class="footer__copyright">© 2020 Supersite, Powered by News API</p>
+      <nav class="footer__nav">
+        <div class="footer__links">
+          <a href="./" class="footer__link">Главная</a>
+          <a href="https://praktikum.yandex.ru/" class="footer__link">Яндекс.Практикум</a>
+        </div>
+        <div class="footer__icons">
+          <a href="https://github.com/DianaIvanovna/" class="footer__link">
+            <img src="./images/github.jpg" alt="Иконка GitHub" class="">
+          </a>
+          <a href="https://www.facebook.com/yandex.praktikum/" class="footer__link">
+            <img src="./images/facebook.jpg" alt="Иконка facebook" class="">
+          </a>
+        </div>
+      </nav>
+    </footer>
+  </div>
+
+  <!--ПОПАП ВХОД-->
+    <div class="popup popup_login">
+      <div class="popup__content ">
+        <img src="./images/close.svg" alt="Иконка закрытия формы" class="popup__close">
+        <h3 class="popup__title">Вход</h3>
+        <form class="popup__form popup__form_login" name="login">
+
+          <h4 class="popup__subtitle">Email</h4>
+          <input type="email" name="email" class="popup__input popup__input_type-email" placeholder="Введите почту" required>
+          <span class="error error__email"></span>
+
+          <h4 class="popup__subtitle">Пароль</h4>
+          <input type="password" name="password" class="popup__input popup__input_type-password" placeholder="Введите пароль" required minlength="8">
+          <span class="error error__password"></span>
+
+          <button type="button" class="button popup__button popup__button_active">Войти</button>
+          <p class="popup__toggle">или<button type="button" class="popup__toggle-link popup__toggle-link_enter popup__toggle-link_registration">Зарегистрироваться</button></p>
+        </form>
+      </div>
+    </div>
+  <!--ПОПАП ВХОД-->
+
+  <!--ПОПАП РЕГИСТРАЦИЯ-->
+  <div class="popup popup_registration">
+    <div class="popup__content">
+      <img src="./images/close.svg" alt="Иконка закрытия формы" class="popup__close">
+      <h3 class="popup__title">Регистрация</h3>
+      <form class="popup__form popup__form_login popup__form_registration" name='registration'>
+
+        <h4 class="popup__subtitle">Email</h4>
+        <input type="email" name="email" class="popup__input popup__input_type-email" placeholder="Введите почту" required>
+        <span class="error error__email"></span>
+
+        <h4 class="popup__subtitle">Пароль</h4>
+        <input type="password" name="password" class="popup__input popup__input_type-password" placeholder="Введите пароль" required minlength="8">
+        <span class="error error__password"></span>
+
+        <h4 class="popup__subtitle">Имя</h4>
+        <input type="text" name="name" class="popup__input popup__input_type-name" placeholder="Введите своё имя" required minlength="2" maxlength="30">
+        <span class="error error__name"></span>
+
+        <span class="error_registration">такой пользователь уже есть</span>
+        <button type="button" class="button popup__button">Зарегистрироваться</button>
+        <p class="popup__toggle">или<button type="button" class="popup__toggle-link popup__toggle-link_enter">Войти</button></p>
+      </form>
+    </div>
+  </div>
+  <!--ПОПАП РЕГИСТРАЦИЯ-->
+
+  <!--УСПЕШНАЯ РЕГИСТРАЦИЯ-->
+  <div class="popup popup_success">
+    <div class="popup__content">
+      <img src="./images/close.svg" alt="Иконка закрытия формы" class="popup__close">
+      <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+      <button type="button" class="popup__toggle-link popup__toggle-link_enter">Выполнить вход</button>
+    </div>
+  </div>
+  <!--УСПЕШНАЯ РЕГИСТРАЦИЯ-->
+
+  <script src="main.ffe5609c151eec18ff71.js"></script>
+</body>
+</html>
