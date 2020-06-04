@@ -1,5 +1,5 @@
 import './style.css';
-import Popup from './js/popap';
+import Popup from './js/popup';
 import FormValidation from './js/formValidation';
 
 // КОММЕНТАРИИ К БЛОКУ ХЭДЕР
@@ -35,7 +35,8 @@ import FormValidation from './js/formValidation';
   const searchInput = document.querySelector('.search__input');
   // потом подставлю условие, что если пользователь зашел, то инпут разлочен, иначе залочен.
   // Чтобы посмотреть залоченный инпут подставте в условие 1.
-  if (0) {
+  const a = 0;
+  if (a) {
     searchInput.setAttribute('disabled', 'disabled');
     searchInput.classList.remove('search__input');
     searchInput.classList.add('search__input_locked');
@@ -48,11 +49,15 @@ import FormValidation from './js/formValidation';
 // Данные ошибки eslint уйдут, когда буду писать js
 (function () {
   const popup = document.querySelector('.popup');
-  const buttonAuth = document.querySelector('.header__button_auth');
-  // eslint-disable-next-line
-  const popupAuth = new Popup(popup, buttonAuth);
-
   const popupReg = document.querySelector('.popup_registration');
+  const popupSuccess = document.querySelector('.popup_success');
+
+  const buttonAuth = document.querySelector('.header__button_auth');
+  const buttonAuth2 = popupReg.querySelector('.popup__toggle-link');
+  const buttonAuth3 = popupSuccess.querySelector('.popup__toggle-link');
+  // eslint-disable-next-line
+  const popupAuth = new Popup(popup, buttonAuth,buttonAuth2,buttonAuth3);
+
   const buttonReg = document.querySelector('.popup__toggle-link');
   // eslint-disable-next-line
   const popupRegistration = new Popup(popupReg, buttonReg);
