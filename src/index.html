@@ -16,14 +16,8 @@
       <div class="background__mobile"></div>
       <header class="header header_main "> <!--ДОБАВЬ ЧЕРНЫЙ ФОН В МОБИЛЬНОЙ ВЕРСИИ И ПОСМОТРИ С ДРУГИМИ ИКОНКАМИ-->
         <span class="header__logo">NewsExplorer</span>
-        <svg class="header__menu_close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M13.4142 12L18.7071 17.2928L17.2929 18.7071L11.2929 12.7071C10.9024 12.3165 10.9024 11.6834 11.2929 11.2928L17.2929 5.29285L18.7071 6.70706L13.4142 12Z" fill="white"/>
-          <path d="M10.8787 12L5.58577 17.2928L6.99999 18.7071L13 12.7071C13.3905 12.3165 13.3905 11.6834 13 11.2928L6.99999 5.29285L5.58577 6.70706L10.8787 12Z" fill="white"/>
-        </svg>
-        <svg class="header__menu" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="8" width="16" height="2" />
-          <rect x="4" y="14" width="16" height="2" />
-        </svg>
+        <svg class="header__menu_close" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.414 12l5.293 5.293-1.414 1.414-6-6a1 1 0 010-1.414l6-6 1.414 1.414L13.414 12z" fill="#fff"/><path d="M10.879 12l-5.293 5.293L7 18.707l6-6a1 1 0 000-1.414l-6-6-1.414 1.414L10.879 12z" fill="#fff"/></svg>
+        <svg class="header__menu" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h16v2H4zM4 14h16v2H4z"/></svg>
         <nav class="header__nav">
           <a href="./" class="header__link header__link_active">Главная</a>
           <a href="./savedArticles.html" class="header__link header__link_inactive">Сохранённые статьи</a>
@@ -31,9 +25,7 @@
           <button class="header__button header__button_auth header__button_none">Авторизоваться</button>
           <button class="header__button header__button_logout >
             <span class="header__button_user button">Diana</span>
-            <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="header__svg" fill-rule="evenodd" clip-rule="evenodd" d="M6 2L2 2L2 14H6V16H2C0.89543 16 0 15.1046 0 14V2C0 0.89543 0.895432 0 2 0H6V2ZM13.5856 9.00002L9.29274 13.1339L10.707 14.4958L17.4141 8.03706L10.707 1.57837L9.29274 2.9402L13.5856 7.0741H4V9.00002H13.5856Z" />
-            </svg>
+            <svg width="18" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="header__svg" clip-rule="evenodd" d="M6 2H2v12h4v2H2a2 2 0 01-2-2V2a2 2 0 012-2h4v2zm7.586 7l-4.293 4.134 1.414 1.362 6.707-6.459-6.707-6.459L9.293 2.94l4.293 4.134H4V9h9.586z"/></svg>
           </button>
         </nav>
       </header>
@@ -126,15 +118,9 @@
 
   <!-- НИЧЕГО НЕ НАЙДЕНО -->
     <section class="waiting-error">
-      <svg class="waiting-error__image" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="43" cy="43" r="36.5" stroke="#D1D2D6"/>
-        <path d="M69 69L88.5 88.5" stroke="#D1D2D6"/>
-        <path d="M58.3283 55.959C54.6606 51.6979 49.2275 48.9998 43.1642 48.9998C37.1009 48.9998 31.6678 51.6979 28 55.959" stroke="#D1D2D6"/>
-        <circle cx="55.5" cy="33.5" r="1.5" fill="#D1D2D6"/>
-        <circle cx="30.5" cy="33.5" r="1.5" fill="#D1D2D6"/>
-        </svg>
-        <h3 class="waiting-error__title">Ничего не найдено</h3>
-        <p class="waiting-error__text">К сожалению по вашему запросу
+      <svg class="waiting-error__image" width="96" height="96" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="43" cy="43" r="36.5" stroke="#D1D2D6"/><path d="M69 69l19.5 19.5M58.328 55.959c-3.667-4.261-9.1-6.96-15.164-6.96-6.063 0-11.496 2.699-15.164 6.96" stroke="#D1D2D6"/><circle cx="55.5" cy="33.5" r="1.5" fill="#D1D2D6"/><circle cx="30.5" cy="33.5" r="1.5" fill="#D1D2D6"/></svg>
+      <h3 class="waiting-error__title">Ничего не найдено</h3>
+      <p class="waiting-error__text">К сожалению по вашему запросу
         ничего не найдено.</p>
     </section>
   <!-- НИЧЕГО НЕ НАЙДЕНО -->
@@ -151,7 +137,7 @@
           <a href="https://github.com/DianaIvanovna/" class="footer__link">
             <img src="<%=require('./images/github.jpg').default%>" alt="" class="">
           </a>
-          <a href="https://github.com/DianaIvanovna/" class="footer__link">
+          <a href="https://www.facebook.com/yandex.praktikum/" class="footer__link">
             <img src="<%=require('./images/facebook.jpg').default%>" alt="" class="">
           </a>
         </div>
