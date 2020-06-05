@@ -20,19 +20,19 @@ export default class Popup {
         this.popupButton.classList.remove('popup__button_active');
         this.popup.classList.remove('popup_is-opened');
       }
+    } else if (event.target.classList.contains('popup__toggle-link_registration')) {
+      document.querySelector('.popup_login').classList.remove('popup_is-opened');
+      this.popupButton.classList.remove('popup__button_active');
+      this.popup.classList.toggle('popup_is-opened');
+    } else if (event.target.classList.contains('popup__toggle-link')) {
+      document.querySelector('.popup_registration').classList.remove('popup_is-opened');
+      document.querySelector('.popup_login').classList.add('popup_is-opened');
     } else {
-      console.log(event.target);
-      if (event.target.classList.contains('popup__toggle-link_registration')) {
-        document.querySelector('.popup_login').classList.remove('popup_is-opened');
-        this.popupButton.classList.remove('popup__button_active');
-        this.popup.classList.toggle('popup_is-opened');
-      } else if (event.target.classList.contains('popup__toggle-link')) {
-        document.querySelector('.popup_registration').classList.remove('popup_is-opened');
-        document.querySelector('.popup_login').classList.add('popup_is-opened');
-      } else {
-        this.popupButton.classList.remove('popup__button_active');
-        this.popup.classList.toggle('popup_is-opened');
-      }
+      this.popupButton.classList.remove('popup__button_active');
+      this.popup.classList.toggle('popup_is-opened');
+    }
+    if (this.popup.classList.contains('popup_is-opened')) {
+      this.popup.querySelector('.popup__input').focus();
     }
   }
 
