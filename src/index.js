@@ -1,6 +1,8 @@
 import './style.css';
-import Popup from './js/popup';
-import FormValidation from './js/formValidation';
+import Popup from './js/components/popup';
+import FormValidation from './js/components/formValidation';
+import Header from './js/components/Header';
+// import MainApi from './js/api/MainApi';
 
 // КОММЕНТАРИИ К БЛОКУ ХЭДЕР
 // 1. Пользователь зашел в аккаунт
@@ -91,4 +93,33 @@ import FormValidation from './js/formValidation';
     header.classList.remove('header_active');
     headerBackground.classList.remove('background__mobile_active');
   }));
+}());
+
+
+// (function () {
+//   const mainApi = new MainApi({
+//     baseUrl: 'https://api.news-explorer-api.gq',
+//     headers: {
+//       Accept: 'application/json',
+//       'Content-Type': 'application/json',
+//     },
+//   });
+// }());
+
+(function () {
+  // isLoggedIn — залогинен ли пользователь;
+// userName — имя, которое отображается в шапке залогиненного пользователя.
+  const header = new Header();
+  // if (document.cookies === undefined) { // пользователь неразегался
+  if (0) { // пользователь неразегался
+    header.render({
+      isLoggedIn: 0,
+    });
+  } else {
+    console.log('&');
+    header.render({
+      isLoggedIn: 1,
+      userName: 'Diana122',
+    });
+  }
 }());
