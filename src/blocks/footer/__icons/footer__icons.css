@@ -1,0 +1,8 @@
+.footer__icons{
+  margin-left:40px;
+}
+@media screen and (max-width:900px){
+  .footer__icons{
+    margin-left:0px;
+  }
+}

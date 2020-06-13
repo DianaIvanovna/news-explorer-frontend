@@ -1,0 +1,17 @@
+.search__input_locked{
+  width: 360px;
+  background: #E6E8EB;
+  border: 1px solid #D1D2D6;
+  box-sizing: border-box;
+  border-radius: 100px;
+  height: 64px;
+  padding-left:24px ;
+  outline:none;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+}

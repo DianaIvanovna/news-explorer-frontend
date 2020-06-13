@@ -1,0 +1,11 @@
+@import url("./_enter/popup__toggle-link_enter.css");
+.popup__toggle-link{
+  color: #2F71E5;
+  border:none;
+  background-color: rgb(0,0,0,0);
+}
+
+.popup_success .popup__toggle-link {
+  margin-top:14px;
+  padding: 0px;
+}

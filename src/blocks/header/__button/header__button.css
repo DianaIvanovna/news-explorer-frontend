@@ -1,0 +1,18 @@
+@import url("./_auth/header__button_auth.css");
+@import url("./_logout/header__button_logout.css");
+@import url("./_user/header__button_user.css");
+@import url("./_none/header__button_none.css");
+@import url("./_savedArticles/header__button_savedArticles.css");
+.header__button{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: rgb(0,0,0,0);
+  border: 1px solid #FFFFFF;
+  color:white;
+  box-sizing: border-box;
+  border-radius: 100px;
+  outline:none;
+}

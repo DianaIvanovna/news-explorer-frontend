@@ -1,0 +1,21 @@
+@import url("./_active/popup__button_active.css");
+.popup__button {
+  width: 100%;
+  height: 64px;
+  margin-top: 38px;
+  border:none;
+  font-size: 36px;
+  background: #E6E8EB;
+  border-radius: 100px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #B6BCBF;
+  margin-bottom:16px;
+  outline:none;
+}
+
+

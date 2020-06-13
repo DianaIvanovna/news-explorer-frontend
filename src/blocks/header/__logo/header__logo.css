@@ -1,0 +1,26 @@
+.header__logo{
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+.header_savedArticles .header__logo{
+  color: #1A1B22;
+}
+.header_active .header__logo{
+  color: #FFFFFF;
+}
+
+@media screen and (max-width:600px)
+{
+  .header__logo
+  {
+    position: absolute;
+    top: 16px;
+    left:calc(10%/2);
+  }
+}

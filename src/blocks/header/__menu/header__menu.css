@@ -1,0 +1,23 @@
+@import url("./_close/header__menu_close.css");
+.header__menu{
+  display:none;
+  fill:white;
+}
+.header_savedArticles .header__menu{
+  fill:black;
+}
+
+@media screen and (max-width:600px)
+{
+  .header__menu
+  {
+    display:block;
+    position: absolute;
+    top:16px;
+    right:16px;
+  }
+  .header_active .header__menu
+  {
+    display: none;
+  }
+}

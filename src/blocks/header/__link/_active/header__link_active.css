@@ -1,0 +1,15 @@
+.header__link_active{
+  color: #FFFFFF;
+  border-bottom: 2px solid white;
+}
+.header_savedArticles .header__link_active{
+  color: #1A1B22;
+  border-bottom: 2px solid #1A1B22
+}
+@media screen and (max-width:600px)
+{
+  .header_active .header__link_active{
+    border-bottom: none;
+    color: #FFFFFF;
+  }
+}

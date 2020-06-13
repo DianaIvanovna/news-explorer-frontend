@@ -1,0 +1,9 @@
+.header__link_inactive{
+  color: #B6BCBF;
+}
+.header_savedArticles .header__link_inactive{
+  color: #1A1B22;
+}
+.header_active .header__link_inactive{
+  color: #FFFFFF;
+}
