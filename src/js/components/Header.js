@@ -10,7 +10,6 @@ export default class Header {
   constructor() {
     // this.color = color;  цвет шапки
     this.header = document.querySelector('.header');
-    console.log(this.header);
     this.buttonSavedArticles = document.getElementById('savedArticles'); // кнопка сохраненные статьи
     this.buttonAuth = this.header.querySelector('.header__button_auth'); // кнопка авторизироваться
     this.buttonExit = this.header.querySelector('.header__button_logout'); // кнопка выход из аккаунта

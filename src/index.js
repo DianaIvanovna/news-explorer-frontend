@@ -1,6 +1,7 @@
 import './style.css';
-import Popup from './js/components/popup';
-import FormValidation from './js/components/formValidation';
+import './index2';
+// import Popup from './js/components/Popup2';
+// import FormValidation from './js/components/formValidation';
 import Header from './js/components/Header';
 // import MainApi from './js/api/MainApi';
 
@@ -49,7 +50,7 @@ import Header from './js/components/Header';
 
 // функция открытия попапов
 // Данные ошибки eslint уйдут, когда буду писать js
-(function () {
+/* (function () {
   const popup = document.querySelector('.popup');
   const popupReg = document.querySelector('.popup_registration');
   const popupSuccess = document.querySelector('.popup_success');
@@ -65,18 +66,18 @@ import Header from './js/components/Header';
   const popupRegistration = new Popup(popupReg, buttonReg);
 
   // Чтобы открыть попап успешная регистрация, нужно добавить ему класс popup_is-opened
-}());
+}()); */
 
 // функция валидирования форм
 // нужно еще сделать функцию, обрабатывающая ошибку, когда пользователь уже зарегистрирован
-(function () {
+/* (function () {
   const form = document.querySelector('.popup__form_login');
   // eslint-disable-next-line
   const formLogin = new FormValidation(form);
   const formReg = document.querySelector('.popup__form_registration');
   // eslint-disable-next-line
   const formRegistration = new FormValidation(formReg);
-}());
+}()); */
 
 // функция для открытия подменю в мобильной версии
 (function () {
@@ -111,7 +112,7 @@ import Header from './js/components/Header';
 // userName — имя, которое отображается в шапке залогиненного пользователя.
   const header = new Header();
   // if (document.cookies === undefined) { // пользователь неразегался
-  if (0) { // пользователь неразегался
+  if (1) { // пользователь неразегался
     header.render({
       isLoggedIn: 0,
     });
