@@ -1,4 +1,4 @@
-.error_registration{
+.error_popup{
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -13,7 +13,7 @@
 
 @media screen and (max-width:768px)
 {
-  .error_registration{
+  .error_popup{
 
     left:25%;
   }

@@ -13,11 +13,25 @@
 // Также классы MainApi и NewsApi не должны взаимодействовать с DOM напрямую из своих методов.
 export default class MainApi {
   constructor(options) {
-    this.options = options;
+    this.baseUrl = options.baseUrl;
+    this.headers = options.headers;
+    console.log(this.baseUrl);
   }
-  // signup(){ //регистрирует нового пользователя;
 
-  // }
+  signup(email, password, name) { // регистрирует нового пользователя;
+    return fetch(`${this.baseUrl}/signup`, {
+      method: 'POST',
+      headers: this.headers,
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
+    }).then((res) => {
+      if (res.ok) return res.json();
+      return Promise.reject(res.status);
+    });
+  }
   // signin (){//аутентифицирует пользователя на основе почты и пароля;
 
   // }

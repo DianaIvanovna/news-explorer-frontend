@@ -13,6 +13,7 @@ export default class Popup {
     event.stopPropagation();
     this.popup.classList.add('popup_is-opened');
     this.button.classList.remove('popup__button_active'); // при открытии кнопка ставится неактивной
+    this.button.setAttribute('disabled', 'disabled');
     this.clearContent();
     this.inputs[0].focus();
   }
