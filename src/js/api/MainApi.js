@@ -15,13 +15,13 @@ export default class MainApi {
   constructor(options) {
     this.baseUrl = options.baseUrl;
     this.headers = options.headers;
-    console.log(this.baseUrl);
   }
 
   signup(email, password, name) { // регистрирует нового пользователя;
     return fetch(`${this.baseUrl}/signup`, {
       method: 'POST',
       headers: this.headers,
+      credentials: 'include',
       body: JSON.stringify({
         name,
         email,
@@ -32,7 +32,31 @@ export default class MainApi {
       return Promise.reject(res.status);
     });
   }
-  // signin (){//аутентифицирует пользователя на основе почты и пароля;
 
-  // }
+  signin(email, password) { // аутентифицирует пользователя на основе почты и пароля;
+    return fetch(`${this.baseUrl}/signin`, {
+      method: 'POST',
+      headers: this.headers,
+      credentials: 'include',
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    }).then((res) => {
+      if (!res.ok) return Promise.reject(res.status);
+      return res.json();
+    });
+  }
+
+  getUserInfo() { // проверка, есть ли куки и отдаю имя и email
+    return fetch(`${this.baseUrl}/users/me`, {
+      method: 'GET',
+      credentials: 'include',
+    })
+      .then((res) => {
+        if (!res.ok) return Promise.reject(res.status);
+        return res.json();
+      });
+  }
+
 }

@@ -25,7 +25,6 @@ export default class Popup {
 
   clearContent() {
     this.inputs.forEach((input) => {
-      /* eslint no-param-reassign: "error" */
       input.value = '';
     });
   }

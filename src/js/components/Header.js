@@ -7,13 +7,33 @@
 // isLoggedIn — залогинен ли пользователь;
 // userName — имя, которое отображается в шапке залогиненного пользователя.
 export default class Header {
-  constructor() {
+  constructor(api) {
     // this.color = color;  цвет шапки
+    this.api = api;
     this.header = document.querySelector('.header');
     this.buttonSavedArticles = document.getElementById('savedArticles'); // кнопка сохраненные статьи
     this.buttonAuth = this.header.querySelector('.header__button_auth'); // кнопка авторизироваться
     this.buttonExit = this.header.querySelector('.header__button_logout'); // кнопка выход из аккаунта
     this.buttonUser = this.header.querySelector('.header__button_user'); // кнопка с именем пользователя
+    this.checkingLogin = this.checkingLogin.bind(this);
+    this.render = this.render.bind(this);
+    this._setHandlers();
+  }
+
+  _setHandlers() {
+    document.addEventListener('login', this.checkingLogin.bind(this));
+  }
+
+  checkingLogin() {
+    this.api.getUserInfo()
+      .then((res) => {
+        console.log(res);
+        this.render({
+          isLoggedIn: 1,
+          userName: res.name,
+        });
+      })
+      .catch((err) => console.log(err));
   }
 
   render(props) { // перерисовывает шапку в зависимости от переданного аргумента — объекта props.

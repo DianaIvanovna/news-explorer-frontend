@@ -6,7 +6,9 @@
       "no-console": "off",
       "global-require": 0,
       "func-names": ["error", "never"],
-      "class-methods-use-this":"off"
+      "class-methods-use-this":"off",
+      "no-unused-vars": "off",
+      "no-param-reassign": "off"
    },
    "env": {
     "browser": true
