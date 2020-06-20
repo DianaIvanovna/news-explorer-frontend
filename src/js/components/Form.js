@@ -73,7 +73,7 @@ export default class FormValidation {
       });
   }
 
-  login() {
+  login() { // добавь, чтобы если не зашел, то попап не закрывался
     this.api.signin(this.email.value, this.password.value)
       .then((res) => {
         //  сервер возвращает клиенту JWT. При этом токен должен сохраняться в localStorage

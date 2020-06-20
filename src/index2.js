@@ -11,8 +11,6 @@ const mainApi = new MainApi({
     'Content-Type': 'application/json',
   },
 });
-const header = new Header(mainApi);
-const auth = new Auth(mainApi);
 
 (function () { // функция открытия и закрытия попапов
   const popupLogin = document.querySelector('.popup_login');
@@ -53,3 +51,5 @@ const auth = new Auth(mainApi);
   // eslint-disable-next-line
   const formRegistration = new Form(formReg, mainApi,popupSuccess);
 }());
+const header = new Header(mainApi);
+const auth = new Auth(mainApi);

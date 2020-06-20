@@ -22,12 +22,12 @@ export default class Header {
 
   _setHandlers() {
     document.addEventListener('login', this.checkingLogin.bind(this));
+    this.buttonExit.addEventListener('click', this.exit.bind(this));
   }
 
-  checkingLogin() {
+  checkingLogin() { // проверка, залогинен ли пользователь
     this.api.getUserInfo()
       .then((res) => {
-        console.log(res);
         this.render({
           isLoggedIn: 1,
           userName: res.name,
@@ -47,5 +47,16 @@ export default class Header {
       this.buttonExit.classList.remove('header__button_none');
       this.buttonUser.textContent = props.userName;
     }
+  }
+
+  exit() { // выход
+    console.log(this.api.logout);
+    this.api.logout()
+      .then((res) => {
+        this.render({
+          isLoggedIn: 0,
+        });
+      })
+      .catch((err) => console.log(err));
   }
 }

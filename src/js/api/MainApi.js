@@ -59,4 +59,14 @@ export default class MainApi {
       });
   }
 
+  logout() { // выход
+    return fetch(`${this.baseUrl}/logout`, {
+      method: 'POST',
+      headers: this.headers,
+      credentials: 'include',
+    }).then((res) => {
+      if (!res.ok) return Promise.reject(res.status);
+      return res.json();
+    });
+  }
 }
