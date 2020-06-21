@@ -80,8 +80,8 @@ export default class FormValidation {
       .then((res) => {
         this.button.textContent = 'Войти';
         const event = new Event('login'); // выполняется событие, которое меняет шапку
-        this.form.parentElement.parentElement.classList.remove('popup_is-opened');// закрыла форму
         document.dispatchEvent(event);
+        this.form.parentElement.parentElement.classList.remove('popup_is-opened');// закрыла форму
       })
       .catch((err) => {
         console.log(err);

@@ -26,14 +26,14 @@ import Header from './js/components/Header';
 // Аналогично со страницей Сохраненые статьи
 
 // Функция сохранить новость
-(function () {
+/* (function () {
   const newsConteiner = document.querySelector('.result__container');
   newsConteiner.addEventListener('click', ((event) => {
     if (event.target.parentElement.classList.contains('card__bookmark')) {
       event.target.parentElement.classList.toggle('card__bookmark_active');
     }
   }));
-}());
+}()); */
 
 // Функция, которая блокирует поиск новостей
 (function () {
