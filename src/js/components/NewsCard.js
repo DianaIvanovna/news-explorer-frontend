@@ -1,3 +1,5 @@
+import { formattingTime } from '../utils/utils';
+
 export default class NewsCard {
   constructor(api, cardData) {
     this.api = api;
@@ -15,7 +17,7 @@ export default class NewsCard {
     // Клонируем содержимое шаблона для того, чтобы переиспользовать его несколько раз
     newCard.append(this.template.content.cloneNode(true));
     newCard.querySelector('.card__image').src = this.urlToImage;
-    newCard.querySelector('.card__date').textContent = this.publishedAt;
+    newCard.querySelector('.card__date').textContent = formattingTime(this.publishedAt);
     newCard.querySelector('.card__title').textContent = this.title;
     newCard.querySelector('.card__text').textContent = this.description;
     newCard.querySelector('.card__sourse').textContent = this.source;
