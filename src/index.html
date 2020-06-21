@@ -41,11 +41,26 @@
   </div>
 
   <!-- РУЗУЛЬТАТЫ ПОИСКА -->
-   <section class="result">
+   <section class="result hiddenElement">
     <h1 class="result__header">Результаты поиска</h1>
 
     <div class="result__container">
       <!-- карточки с новостями -->
+      <template>
+        <div class="card">
+          <img src="" alt="фото новости" class="card__image">
+          <svg class= "card__bookmark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="8" fill="white"/>
+            <path class ="card__bookmark_1" d="M19.3822 23.7137L14 27.9425V12L26 12V27.9425L20.6178 23.7137L20 23.2283L19.3822 23.7137Z" />
+          </svg>
+          <p class="card__alert">Войдите, чтобы сохранять статьи</p>
+          <p class="card__date"></p>
+          <h3 class="card__title"></h3>
+          <p class="card__text"></p>
+          <p class="card__sourse"></p>
+        </div>
+      </template>
+      <!--
       <div class="card">
         <img src="<%=require('./images/image_08.jpg').default%>" alt="фото новости" class="card__image">
         <svg class= "card__bookmark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,13 +108,14 @@
         <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
         <p class="card__sourse">Лента.ру</p>
       </div>
+    -->
     </div>
     <button class="result__button">Показать ещё</button>
    </section>
   <!-- РУЗУЛЬТАТЫ ПОИСКА -->
 
   <!-- ПРЕЛОУДЕР -->
-    <section class="waiting">
+    <section class="waiting hiddenElement">
       <div class="waiting__loading">
         <i class="circle-preloader"></i>
         <h2 class="waiting__text">Идет поиск новостей...</h2>
@@ -108,13 +124,21 @@
   <!-- ПРЕЛОУДЕР -->
 
   <!-- НИЧЕГО НЕ НАЙДЕНО -->
-    <section class="waiting-error">
+    <section class="waiting-error hiddenElement">
       <svg class="waiting-error__image" width="96" height="96" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="43" cy="43" r="36.5" stroke="#D1D2D6"/><path d="M69 69l19.5 19.5M58.328 55.959c-3.667-4.261-9.1-6.96-15.164-6.96-6.063 0-11.496 2.699-15.164 6.96" stroke="#D1D2D6"/><circle cx="55.5" cy="33.5" r="1.5" fill="#D1D2D6"/><circle cx="30.5" cy="33.5" r="1.5" fill="#D1D2D6"/></svg>
         <h3 class="waiting-error__title">Ничего не найдено</h3>
         <p class="waiting-error__text">К сожалению по вашему запросу
         ничего не найдено.</p>
     </section>
   <!-- НИЧЕГО НЕ НАЙДЕНО -->
+
+    <!-- Ошибка сервера -->
+    <section class="server-error waiting-error hiddenElement">
+      <svg class="waiting-error__image" width="96" height="96" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="43" cy="43" r="36.5" stroke="#D1D2D6"/><path d="M69 69l19.5 19.5M58.328 55.959c-3.667-4.261-9.1-6.96-15.164-6.96-6.063 0-11.496 2.699-15.164 6.96" stroke="#D1D2D6"/><circle cx="55.5" cy="33.5" r="1.5" fill="#D1D2D6"/><circle cx="30.5" cy="33.5" r="1.5" fill="#D1D2D6"/></svg>
+        <h3 class="waiting-error__title">Во время запроса произошла ошибка.</h3>
+        <p class="waiting-error__text">Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</p>
+    </section>
+  <!-- Ошибка сервера -->
 
   <div class="author">
     <img src="<%=require('./images/автор.jpg').default%>" alt="фото автора" class="author__photo">

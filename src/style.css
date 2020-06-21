@@ -13,6 +13,7 @@
 @import url("./blocks/waiting-error/waiting-error.css");
 @import url("./blocks/popup/popup.css");
 @import url("./blocks/error/error.css");
+@import url("./blocks/hiddenElement/hiddenElement.css");
 
 body{
   margin: 0px;
