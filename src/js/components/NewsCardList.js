@@ -1,7 +1,7 @@
 import { calcTimeForRequest } from '../utils/utils';
 
 export default class NewsCardList {
-  constructor(api) {
+  constructor(api, createCard) {
     this.api = api;
     this.resultBlock = document.querySelector('.result');
     this.container = document.querySelector('.result__container');
@@ -10,8 +10,10 @@ export default class NewsCardList {
     this.nothingFoundBlock = document.querySelector('.waiting-error');
     this.preloader = document.querySelector('.waiting');
     this.serverError = document.querySelector('.server-error');
+    this.createCard = createCard;
     this._setHandlers();
     this._initialState();
+    this.addCard.bind(this);
   }
 
   _setHandlers() {
@@ -44,6 +46,7 @@ export default class NewsCardList {
           this.nothingFoundBlock.classList.remove('hiddenElement');
         } else {
           this.resultBlock.classList.remove('hiddenElement');
+          this.addCard(date.articles);
           // вызвать добавление карточек
           console.log(date);
         }
@@ -53,6 +56,14 @@ export default class NewsCardList {
         this.serverError.classList.remove('hiddenElement'); // ошибка сервера
         console.log(err);
       });
+  }
+
+  addCard(articles) {
+    articles.forEach((article) => {
+      const news = this.createCard(this.api, article);
+      const cardElement = news.create();
+      this.container.append(cardElement); // новые карточки вставляются вперед
+    });
   }
 }
 /* Когда данные получены, в блоке результатов исчезает прелоудер, и появляются карточки. Их следует расположить в линию по 3 на каждой строке на разрешении 1280 пикселей. Если сжимать окно браузера, карточки переносятся на следующую строку. */
