@@ -32,7 +32,7 @@ const mainApi = new MainApi({
   // 1 аргумент - попап, 2- кнопка отправление формы,
   // 3 - массив кнопок для закрытия, 4 -массив кнопок для открытия
 
-  const login = new Popup(popupLogin, popupLoginButton, [popupLoginClose, popupLoginButton,
+  const login = new Popup(popupLogin, popupLoginButton, [popupLoginClose,
     popupLoginToggle], [popupRegToggle, popupLoginOpen, popupSuccessToggle]);
   const registration = new Popup(popupReg, popupRegButton, [popupRegClose, popupRegToggle],
     [popupLoginToggle]);

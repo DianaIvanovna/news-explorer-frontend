@@ -1,5 +1,6 @@
 @import url("./_popup/error_popup.css");
 @import url("./__name/error__name.css");
+@import url("./__password/error__password.css");
 .error
 {
     font-family: Inter;

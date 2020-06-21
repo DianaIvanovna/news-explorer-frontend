@@ -74,15 +74,18 @@ export default class FormValidation {
   }
 
   login() { // добавь, чтобы если не зашел, то попап не закрывался
+    this.button.textContent = 'Выполняем вход...';
     this.api.signin(this.email.value, this.password.value)
       .then((res) => {
-        //  сервер возвращает клиенту JWT. При этом токен должен сохраняться в localStorage
-        // Также шапка сайта должна изменить свой внешний вид.
-        const event = new Event('login');
+        this.button.textContent = 'Войти';
+        const event = new Event('login'); // выполняется событие, которое меняет шапку
+        this.form.parentElement.parentElement.classList.remove('popup_is-opened');// закрыла форму
         document.dispatchEvent(event);
       })
       .catch((err) => {
         console.log(err);
+        this.setServerError('Неправильные почта или пароль');
+        this.button.textContent = 'Войти';
       });
   }
 

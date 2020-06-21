@@ -34,7 +34,7 @@
         <h1 class="search__title">Что в мире творится?</h1>
         <p class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
         <div class="search__field">
-          <input type="search" class=" search__input"  placeholder="Введите тему новости">
+          <input type="search" class=" search__input"  placeholder="Введите тему новости" required>
           <button class="search__button">Искать</button>
         </div>
     </section >
@@ -160,6 +160,7 @@
           <input type="password" name="password" class="popup__input popup__input_type-password" placeholder="Введите пароль" required minlength="8">
           <span class="error error__password"></span>
 
+          <span class="error_popup"></span>
           <button type="button" class="button popup__button popup__button_active">Войти</button>
           <p class="popup__toggle">или<button type="button" class="popup__toggle-link popup__toggle-link_enter popup__toggle-link_registration">Зарегистрироваться</button></p>
         </form>
