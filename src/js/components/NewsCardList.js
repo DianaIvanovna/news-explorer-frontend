@@ -16,6 +16,7 @@ export default class NewsCardList {
     this._setHandlers();
     this._initialState();
     this.addCard.bind(this);
+    this.clearСardСontainer.bind(this);
   }
 
   _setHandlers() {
@@ -49,10 +50,10 @@ export default class NewsCardList {
         if (date.articles.length === 0) { // если нет новостей, показываю блок "ничего не найдено"
           this.nothingFoundBlock.classList.remove('hiddenElement');
         } else {
+          this.clearСardСontainer();
           this.resultBlock.classList.remove('hiddenElement');
           this.articles = date.articles;
           this.addCard(); // вызвать добавление карточек
-          console.log(date);
         }
       })
       .catch((err) => {
@@ -77,6 +78,15 @@ export default class NewsCardList {
         const cardElement = news.create();
         this.container.append(cardElement);
       }
+    }
+  }
+
+  clearСardСontainer() { // очистить контейнер с новостями перед новым поиском
+    const cards = this.container.querySelectorAll('.card');
+    if (cards.length !== 0) {
+      cards.forEach((card) => {
+        this.container.removeChild(card);
+      });
     }
   }
 }

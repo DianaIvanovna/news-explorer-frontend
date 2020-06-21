@@ -13,23 +13,23 @@ export default class NewsCard {
   }
 
   _setHandlers() {
-    this.bookmark.addEventListener('mouseover', () => {
+    this.templateBookmark.addEventListener('mouseover', () => {
       if (this.savedArticles.classList.contains('header__link_none')) { // не залогинен
-        this.alert.classList.remove('hiddenElement');
+        this.templateAlert.classList.remove('hiddenElement');
       }
     });
-    this.bookmark.addEventListener('mouseout', () => {
+    this.templateBookmark.addEventListener('mouseout', () => {
       if (this.savedArticles.classList.contains('header__link_none')) { // не залогинен
-        this.alert.classList.add('hiddenElement');
+        this.templateAlert.classList.add('hiddenElement');
       }
     });
-    this.bookmark.addEventListener('click', this.addBookmarks.bind(this));
+    this.templateBookmark.addEventListener('click', this.addBookmarks.bind(this));
     // this.bookmark.addEventListener('mouseover', this.addBookmarks.bind(this));
   }
 
   addBookmarks(event) {
     if (!this.savedArticles.classList.contains('header__link_none')) { // залогинен
-      this.bookmark.classList.toggle('card__bookmark_active');
+      this.templateBookmark.classList.toggle('card__bookmark_active');
       // добавить в сохраненные
     }
   }
@@ -39,19 +39,19 @@ export default class NewsCard {
     newCard.classList.add('card');
     // Клонируем содержимое шаблона для того, чтобы переиспользовать его несколько раз
     newCard.append(this.template.content.cloneNode(true));
-    this.image = newCard.querySelector('.card__image');
-    this.date = newCard.querySelector('.card__date');
-    this.title = newCard.querySelector('.card__title');
-    this.text = newCard.querySelector('.card__text');
-    this.sourse = newCard.querySelector('.card__sourse');
-    this.bookmark = newCard.querySelector('.card__bookmark');
-    this.alert = newCard.querySelector('.card__alert');
+    this.templateImage = newCard.querySelector('.card__image');
+    this.templateDate = newCard.querySelector('.card__date');
+    this.templateTitle = newCard.querySelector('.card__title');
+    this.templateText = newCard.querySelector('.card__text');
+    this.templateSourse = newCard.querySelector('.card__sourse');
+    this.templateBookmark = newCard.querySelector('.card__bookmark');
+    this.templateAlert = newCard.querySelector('.card__alert');
 
-    this.image.src = this.urlToImage;
-    this.date.textContent = formattingTime(this.publishedAt);
-    this.title.textContent = this.title;
-    this.text.textContent = this.description;
-    this.sourse.textContent = this.source;
+    this.templateImage.src = this.urlToImage;
+    this.templateDate.textContent = formattingTime(this.publishedAt);
+    this.templateTitle.textContent = this.title;
+    this.templateText.textContent = this.description;
+    this.templateSourse.textContent = this.source;
 
     this._setHandlers();
     return newCard;
