@@ -69,4 +69,29 @@ export default class MainApi {
       return res.json();
     });
   }
+
+  saveNews(keyword, title, text, date, source, link, image) { // сохранение статьи
+    return fetch(`${this.baseUrl}/articles`, {
+      method: 'POST',
+      headers: this.headers,
+      credentials: 'include',
+      body: JSON.stringify({
+        keyword, title, text, date, source, link, image,
+      }),
+    }).then((res) => {
+      if (!res.ok) return Promise.reject(res.status);
+      return res.json();
+    });
+  }
+
+  deleteNews(articlesId) { // сохранение статьи
+    return fetch(`${this.baseUrl}/articles/${articlesId}`, {
+      method: 'DELETE',
+      headers: this.headers,
+      credentials: 'include',
+    }).then((res) => {
+      if (!res.ok) return Promise.reject(res.status);
+      return res.json();
+    });
+  }
 }

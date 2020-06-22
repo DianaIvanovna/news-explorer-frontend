@@ -50,7 +50,6 @@ export default class FormValidation {
   _formSubmission(event) { // отправка формы
     this._validateForm();
     if (event.target.classList.contains('popup__button_active')) {
-      console.log(this.form);
       if (this.form.classList.contains('popup__form_registration')) {
         this.registration();
       } else this.login();
@@ -58,7 +57,6 @@ export default class FormValidation {
   }
 
   registration() {
-    console.log('!');
     this.button.textContent = 'Регистрируемся...';
     this.api.signup(this.email.value, this.password.value, this.name.value)
       .then((res) => {

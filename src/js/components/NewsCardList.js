@@ -53,7 +53,7 @@ export default class NewsCardList {
           this.clearСardСontainer();
           this.resultBlock.classList.remove('hiddenElement');
           this.articles = date.articles;
-          this.addCard(); // вызвать добавление карточек
+          this.addCard(keyWord); // вызвать добавление карточек
         }
       })
       .catch((err) => {
@@ -63,10 +63,10 @@ export default class NewsCardList {
       });
   }
 
-  addCard() {
+  addCard(keyWord) {
     if (this.articles.length > 3) {
       for (let i = 0; i < 3; i += 1) {
-        const news = this.createCard(this.api, this.articles[i]);
+        const news = this.createCard(this.api, this.articles[i], keyWord);
         const cardElement = news.create();
         this.container.append(cardElement);
       }
@@ -74,7 +74,7 @@ export default class NewsCardList {
     } else {
       this.resultButton.classList.add('hiddenElement');
       for (let i = 0; i < this.articles.length; i += 1) {
-        const news = this.createCard(this.api, this.articles[i]);
+        const news = this.createCard(this.api, this.articles[i], keyWord);
         const cardElement = news.create();
         this.container.append(cardElement);
       }

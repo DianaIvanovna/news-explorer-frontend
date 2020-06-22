@@ -4,6 +4,10 @@ import MainApi from './js/api/MainApi';
 import Auth from './js/components/Auth';
 import Header from './js/components/Header';
 
+import NewsApi from './js/api/NewsApi';
+import NewsCardList from './js/components/NewsCardList';
+import NewsCard from './js/components/NewsCard';
+
 const mainApi = new MainApi({
   baseUrl: 'https://api.news-explorer-api.gq',
   headers: {
@@ -53,3 +57,14 @@ const mainApi = new MainApi({
 }());
 const header = new Header(mainApi);
 const auth = new Auth(mainApi);
+
+const apiKey = 'eb14994f064f4a27bfe88e8a815ccd48';
+const newsApi = new NewsApi({
+  baseUrl: 'https://newsapi.org/v2/everything?',
+  apiKey,
+});
+
+(function () {
+  const createCard = (api, obj, keyWord) => new NewsCard(mainApi, obj, keyWord);
+  const newsCardList = new NewsCardList(newsApi, createCard);
+}());

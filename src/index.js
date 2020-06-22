@@ -1,6 +1,5 @@
 import './style.css';
 import './index2';
-import './index3';
 
 // import Popup from './js/components/Popup2';
 // import FormValidation from './js/components/formValidation';

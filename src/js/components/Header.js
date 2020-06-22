@@ -50,7 +50,6 @@ export default class Header {
   }
 
   exit() { // выход
-    console.log(this.api.logout);
     this.api.logout()
       .then((res) => {
         this.render({

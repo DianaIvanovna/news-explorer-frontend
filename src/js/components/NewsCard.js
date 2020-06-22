@@ -1,15 +1,19 @@
 import { formattingTime } from '../utils/utils';
 
 export default class NewsCard {
-  constructor(api, cardData) {
+  constructor(api, cardData, keyWord) {
     this.api = api;
+    this.keyWord = keyWord;
     this.title = cardData.title;
     this.publishedAt = cardData.publishedAt;
     this.description = cardData.description;
     this.urlToImage = cardData.urlToImage;
     this.source = cardData.source.name;
+    this.url = cardData.url;
     this.template = document.querySelector('.template-card');
     this.savedArticles = document.getElementById('savedArticles');
+    this.saveNews = this.saveNews.bind(this);
+    this.deleteNews = this.deleteNews.bind(this);
   }
 
   _setHandlers() {
@@ -29,9 +33,40 @@ export default class NewsCard {
 
   addBookmarks(event) {
     if (!this.savedArticles.classList.contains('header__link_none')) { // залогинен
-      this.templateBookmark.classList.toggle('card__bookmark_active');
-      // добавить в сохраненные
+      if (this.templateBookmark.classList.contains('card__bookmark_active')) {
+        this.templateBookmark.classList.remove('card__bookmark_active');
+        // удалить статью
+        this.deleteNews();
+      } else {
+        this.templateBookmark.classList.add('card__bookmark_active');
+        // добавить в сохраненные
+        this.saveNews();
+      }
     }
+  }
+
+  deleteNews() {
+    this.api.deleteNews(this._id)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  saveNews() {
+    this.api.saveNews(this.keyWord, this.templateTitle.textContent, this.templateText.textContent,
+      this.templateDate.textContent, this.templateSourse.textContent, this.url,
+      this.templateImage.src)
+      .then((res) => {
+        console.log(res);
+        this._id = res.data._id;
+        console.log(this._id);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   create() {

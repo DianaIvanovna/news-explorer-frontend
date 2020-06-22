@@ -9,6 +9,6 @@ const newsApi = new NewsApi({
 });
 
 (function () {
-  const createCard = (api, obj) => new NewsCard(newsApi, obj);
+  const createCard = (api, obj, keyWord) => new NewsCard(newsApi, obj, keyWord);
   const newsCardList = new NewsCardList(newsApi, createCard);
 }());
