@@ -1,28 +1,42 @@
 import './style.css';
-import './index2';
+import Popup from './js/components/Popup';
+import Form from './js/components/Form';
+import MainApi from './js/api/MainApi';
+import Header from './js/components/Header';
+import NewsApi from './js/api/NewsApi';
+import NewsCardList from './js/components/NewsCardList';
+import NewsCard from './js/components/NewsCard';
+import {
+  baseUrlMainApi, headersMainApi, apiKey, baseUrlNewsApi,
+} from './js/constants/api-const';
+import {
+  loginConst, registrationConst, successConst, popupSuccess, form, formReg,
+} from './js/constants/html-const';
 
-// Функция, которая блокирует поиск новостей
 (function () {
-  const searchInput = document.querySelector('.search__input');
-  // потом подставлю условие, что если пользователь зашел, то инпут разлочен, иначе залочен.
-  // Чтобы посмотреть залоченный инпут подставте в условие 1.
-  const a = 0;
-  if (a) {
-    searchInput.setAttribute('disabled', 'disabled');
-    searchInput.classList.remove('search__input');
-    searchInput.classList.add('search__input_locked');
-    searchInput.placeholder = 'Залочено';
-    document.querySelector('.search__button').classList.add('seach__button_locked');
-  }
+  const mainApi = new MainApi({
+    baseUrl: baseUrlMainApi,
+    headers: headersMainApi,
+  });
+
+  const newsApi = new NewsApi({
+    baseUrl: baseUrlNewsApi,
+    apiKey,
+  });
+  // 1 аргумент - попап, 2- кнопка отправление формы,
+  // 3 - массив кнопок для закрытия, 4 -массив кнопок для открытия
+  const login = new Popup(loginConst.popup, loginConst.popupButton, loginConst.arrayClose,
+    loginConst.arrayOpen);
+  const registration = new Popup(registrationConst.popup, registrationConst.popupButton,
+    registrationConst.arrayClose, registrationConst.arrayOpen);
+  const success = new Popup(successConst.popup, successConst.popupButton, successConst.arrayClose,
+    successConst.arrayOpen, successConst.flagSuccess);
+
+
+  const formLogin = new Form(form, mainApi);
+  const formRegistration = new Form(formReg, mainApi, popupSuccess);
+  const header = new Header(mainApi);
+
+  const createCard = (api, obj, keyWord) => new NewsCard(mainApi, obj, keyWord);
+  const newsCardList = new NewsCardList(newsApi, createCard);
 }());
-
-
-// (function () {
-//   const mainApi = new MainApi({
-//     baseUrl: 'https://api.news-explorer-api.gq',
-//     headers: {
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json',
-//     },
-//   });
-// }());

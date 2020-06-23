@@ -1,60 +1,58 @@
-// Popup. Класс попапа. Вот его методы:
-// setContent — вставляет в попап содержимое, например, форму входа или сообщение
-// об успешной регистрации;
-// clearContent — очищает содержимое попапа;
-// open — открывает попап;
-// close — закрывает попап.
-
 export default class Popup {
-  constructor(popup, popupOpen, popupOpen2 = null, popupOpen3 = null) {
-    this.popup = popup;
-    this.popupClose = popup.querySelector('.popup__close');
-    this.popupOpen = popupOpen;
-    this.popupOpen2 = popupOpen2;
-    this.popupOpen3 = popupOpen3;
-    this.popupButton = popup.querySelector('.popup__button');
-    this.openAndCloseForm = this.openAndCloseForm.bind(this);
-    this.closeForm = this.closeForm.bind(this);
-    this.setEventListeners();
+  constructor(popup, button, arrayForClose, arrayForOpen) {
+    this._popup = popup;
+    this._button = button;
+    this._inputs = this._popup.querySelectorAll('.popup__input');
+    this._open = this._open.bind(this);
+    this._close = this._close.bind(this);
+    this._clearContent = this._clearContent.bind(this);
+    this._setHandlers(arrayForClose, arrayForOpen);
   }
 
-  openAndCloseForm(event) {
+  _open(event) {
     event.stopPropagation();
-    // при открытие формы, кнопка становится неактивной
-    if (event.target.classList.contains('popup__button')) {
-      if (event.target.classList.contains('popup__button_active')) {
-        // когда нажали на кнопку добавить и когда она активна
-        this.popupButton.classList.remove('popup__button_active');
-        this.popup.classList.remove('popup_is-opened');
+    this._popup.classList.add('popup_is-opened');
+    this._button.classList.remove('popup__button_active'); // при открытии кнопка ставится неактивной
+    this._button.setAttribute('disabled', 'disabled');
+    this._clearContent();
+    this._inputs[0].focus();
+  }
+
+  _close(event) {
+    event.stopPropagation();
+    this._popup.classList.remove('popup_is-opened');
+  }
+
+  _clearContent() {
+    this._inputs.forEach((input) => {
+      input.value = '';
+    });
+  }
+
+  _setHandlers(arrayForClose, arrayForOpen) {
+    this._popup.addEventListener('click', (event) => { // чтобы попап закрывался, при нажатии не на форму
+      if (event.target.classList.contains('popup')) {
+        this._popup.classList.remove('popup_is-opened');
       }
-    } else if (event.target.classList.contains('popup__toggle-link_registration')) {
-      document.querySelector('.popup_login').classList.remove('popup_is-opened');
-      this.popupButton.classList.remove('popup__button_active');
-      this.popup.classList.toggle('popup_is-opened');
-    } else if (event.target.classList.contains('popup__toggle-link')) {
-      document.querySelector('.popup_registration').classList.remove('popup_is-opened');
-      document.querySelector('.popup_login').classList.add('popup_is-opened');
-    } else {
-      this.popupButton.classList.remove('popup__button_active');
-      this.popup.classList.toggle('popup_is-opened');
+    });
+    if (arrayForClose !== undefined) {
+      arrayForClose.forEach((el) => {
+        el.addEventListener('click', this._close);
+      });
     }
-    if (this.popup.classList.contains('popup_is-opened')) {
-      this.popup.querySelector('.popup__input').focus();
+    if (arrayForOpen !== undefined) {
+      arrayForOpen.forEach((el) => {
+        el.addEventListener('click', this._open);
+      });
     }
-  }
-
-  closeForm(event) {
-    if (event.target.classList.contains('popup')) {
-      this.popup.classList.remove('popup_is-opened');
-    }
-  }
-
-  setEventListeners() {
-    this.popup.addEventListener('click', this.closeForm);
-    this.popupOpen.addEventListener('click', this.openAndCloseForm);
-    this.popupClose.addEventListener('click', this.openAndCloseForm);
-    this.popupButton.addEventListener('click', this.openAndCloseForm);
-    if (this.popupOpen2 != null) this.popupOpen2.addEventListener('click', this.openAndCloseForm);
-    if (this.popupOpen3 != null) this.popupOpen3.addEventListener('click', this.openAndCloseForm);
   }
 }
+// КАК ЭТО РАБОТАЕТ
+// В класс передается 2 массива:
+// arrayForClose - массив элементов, при нажатии которых нужно закрыть форму
+// arrayForOpen - массив элементов, при нажатии которых нужно открыть форму
+// В методе _setHandlers на них вешается нужный обработчик событий.
+// Метод open открывает форму, добавляя ей класс popup_is-opened
+// Делает кнопку отправки формы неактивной, удаляя ему класс popup__button_active
+// и очищает все инпуты формы с помощью метода clearContent.
+// Метод close закрывает форму, удаляя класс popup_is-opened

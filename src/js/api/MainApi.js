@@ -1,13 +1,13 @@
 export default class MainApi {
   constructor(options) {
-    this.baseUrl = options.baseUrl;
-    this.headers = options.headers;
+    this._baseUrl = options.baseUrl;
+    this._headers = options.headers;
   }
 
   signup(email, password, name) { // регистрирует нового пользователя;
-    return fetch(`${this.baseUrl}/signup`, {
+    return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
-      headers: this.headers,
+      headers: this._headers,
       credentials: 'include',
       body: JSON.stringify({
         name,
@@ -21,9 +21,9 @@ export default class MainApi {
   }
 
   signin(email, password) { // аутентифицирует пользователя на основе почты и пароля;
-    return fetch(`${this.baseUrl}/signin`, {
+    return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
-      headers: this.headers,
+      headers: this._headers,
       credentials: 'include',
       body: JSON.stringify({
         email,
@@ -36,7 +36,7 @@ export default class MainApi {
   }
 
   getUserInfo() { // проверка, есть ли куки и отдаю имя и email
-    return fetch(`${this.baseUrl}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       credentials: 'include',
     })
@@ -47,9 +47,9 @@ export default class MainApi {
   }
 
   logout() { // выход
-    return fetch(`${this.baseUrl}/logout`, {
+    return fetch(`${this._baseUrl}/logout`, {
       method: 'POST',
-      headers: this.headers,
+      headers: this._headers,
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) return Promise.reject(res.status);
@@ -58,9 +58,9 @@ export default class MainApi {
   }
 
   saveNews(keyword, title, text, date, source, link, image) { // сохранить статью
-    return fetch(`${this.baseUrl}/articles`, {
+    return fetch(`${this._baseUrl}/articles`, {
       method: 'POST',
-      headers: this.headers,
+      headers: this._headers,
       credentials: 'include',
       body: JSON.stringify({
         keyword, title, text, date, source, link, image,
@@ -72,9 +72,9 @@ export default class MainApi {
   }
 
   deleteNews(articlesId) { // удалить статью
-    return fetch(`${this.baseUrl}/articles/${articlesId}`, {
+    return fetch(`${this._baseUrl}/articles/${articlesId}`, {
       method: 'DELETE',
-      headers: this.headers,
+      headers: this._headers,
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) return Promise.reject(res.status);
@@ -83,9 +83,9 @@ export default class MainApi {
   }
 
   getNews() { // вернуть сохранёные статьи
-    return fetch(`${this.baseUrl}/articles/`, {
+    return fetch(`${this._baseUrl}/articles/`, {
       method: 'GET',
-      headers: this.headers,
+      headers: this._headers,
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) return Promise.reject(res.status);

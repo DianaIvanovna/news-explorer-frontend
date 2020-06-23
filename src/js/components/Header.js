@@ -1,77 +1,77 @@
 export default class Header {
   constructor(api) {
-    this.api = api;
-    this.header = document.querySelector('.header');
-    this.headerMenu = document.querySelector('.header__menu');
-    this.headerBackground = document.querySelector('.background__mobile');
-    this.headerMenuClose = document.querySelector('.header__menu_close');
-    this.buttonSavedArticles = document.getElementById('savedArticles'); // кнопка сохраненные статьи
-    this.buttonAuth = this.header.querySelector('.header__button_auth'); // кнопка авторизироваться
-    this.buttonExit = this.header.querySelector('.header__button_logout'); // кнопка выход из аккаунта
-    this.buttonUser = this.header.querySelector('.header__button_user'); // кнопка с именем пользователя
-    this.checkingLogin = this.checkingLogin.bind(this);
-    this.render = this.render.bind(this);
+    this._api = api;
+    this._header = document.querySelector('.header');
+    this._headerMenu = document.querySelector('.header__menu');
+    this._headerBackground = document.querySelector('.background__mobile');
+    this._headerMenuClose = document.querySelector('.header__menu_close');
+    this._buttonSavedArticles = document.getElementById('savedArticles'); // кнопка сохраненные статьи
+    this._buttonAuth = this._header.querySelector('.header__button_auth'); // кнопка авторизироваться
+    this._button_Exit = this._header.querySelector('.header__button_logout'); // кнопка выход из аккаунта
+    this._buttonUser = this._header.querySelector('.header__button_user'); // кнопка с именем пользователя
+    this._checkingLogin = this._checkingLogin.bind(this);
+    this._render = this._render.bind(this);
     this._setHandlers();
-    this.checkingLogin(); // проверяю, залогин ли пользователь
+    this._checkingLogin(); // проверяю, залогин ли пользователь
   }
 
   _setHandlers() {
-    document.addEventListener('login', this.checkingLogin.bind(this));
-    this.buttonExit.addEventListener('click', this.exit.bind(this));
-    this.headerMenu.addEventListener('click', this.openMobile.bind(this));
-    this.headerMenuClose.addEventListener('click', this.closeMobile.bind(this));
+    document.addEventListener('login', this._checkingLogin.bind(this));
+    this._button_Exit.addEventListener('click', this._exit.bind(this));
+    this._headerMenu.addEventListener('click', this._openMobile.bind(this));
+    this._headerMenuClose.addEventListener('click', this._closeMobile.bind(this));
   }
 
-  openMobile() { // открытие мобильной версии
-    this.header.classList.add('header_active');
-    this.headerBackground.classList.add('background__mobile_active');
+  _openMobile() { // открытие мобильной версии
+    this._header.classList.add('header_active');
+    this._headerBackground.classList.add('background__mobile_active');
   }
 
-  closeMobile() { // закрытие мобильной версии
-    this.header.classList.remove('header_active');
-    this.headerBackground.classList.remove('background__mobile_active');
+  _closeMobile() { // закрытие мобильной версии
+    this._header.classList.remove('header_active');
+    this._headerBackground.classList.remove('background__mobile_active');
   }
 
-  checkingLogin() { // проверка, залогинен ли пользователь
-    this.api.getUserInfo()
+  _checkingLogin() { // проверка, залогинен ли пользователь
+    this._api.getUserInfo()
       .then((res) => {
-        this.render({
+        this._render({
           isLoggedIn: 1,
           userName: res.name,
         });
       })
       .catch((err) => {
-        this.render({
+        this._render({
           isLoggedIn: 0,
         });
       });
   }
 
-  render(props) { // перерисовывает шапку в зависимости от переданного аргумента — объекта props.
-    if (this.header.classList.contains('header_savedArticles')) { // На странице "сохраненные статьи"
+  _render(props) { // перерисовывает шапку в зависимости от переданного аргумента — объекта props.
+    if (this._header.classList.contains('header_savedArticles')) { // На странице "сохраненные статьи"
       if (!props.isLoggedIn) { // пользователь не залогинен
         document.location.href = './'; // выбросить пользователя на главную страницу
       } else { // залогинен
-        this.buttonSavedArticles.classList.remove('header__link_none');
-        this.buttonExit.classList.remove('header__button_none');
-        this.buttonUser.textContent = props.userName;
+        this._buttonSavedArticles.classList.remove('header__link_none');
+        this._button_Exit.classList.remove('header__button_none');
+        this._buttonUser.textContent = props.userName;
       }
     } else if (!props.isLoggedIn) { // пользователь не залогинен и находится на главной странице
-      this.buttonSavedArticles.classList.add('header__link_none');
-      this.buttonAuth.classList.remove('header__button_none');
-      this.buttonExit.classList.add('header__button_none');
+      this._buttonSavedArticles.classList.add('header__link_none');
+      this._buttonAuth.classList.remove('header__button_none');
+      this._button_Exit.classList.add('header__button_none');
     } else { // залогинен
-      this.buttonSavedArticles.classList.remove('header__link_none');
-      this.buttonAuth.classList.add('header__button_none');
-      this.buttonExit.classList.remove('header__button_none');
-      this.buttonUser.textContent = props.userName;
+      this._buttonSavedArticles.classList.remove('header__link_none');
+      this._buttonAuth.classList.add('header__button_none');
+      this._button_Exit.classList.remove('header__button_none');
+      this._buttonUser.textContent = props.userName;
     }
   }
 
-  exit() { // выход
-    this.api.logout()
+  _exit() { // выход
+    this._api.logout()
       .then((res) => {
-        this.render({
+        this._render({
           isLoggedIn: 0,
         });
       })
