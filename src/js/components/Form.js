@@ -34,7 +34,7 @@ export default class FormValidation {
   _formSubmission(event) { // отправка формы
     this._validateForm();
     if (event.target.classList.contains('popup__button_active')) {
-      if (this._form.classList.contains('popup__form__registration')) {
+      if (this._form.classList.contains('popup__form_registration')) {
         this._registration();
       } else this._login();
     }
