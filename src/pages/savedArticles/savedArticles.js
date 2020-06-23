@@ -1,4 +1,9 @@
 import './savedArticles.css';
+import MainApi from '../../js/api/MainApi';
+import SavedArticles from '../../js/components/SavedArticles';
+import Header from '../../js/components/Header';
+import NewsCardList from '../../js/components/NewsCardList';
+import NewsCard from '../../js/components/NewsCard';
 
 // функция для открытия подменю в мобильной версии
 (function () {
@@ -15,3 +20,14 @@ import './savedArticles.css';
     headerBackground.classList.remove('background__mobile_active');
   }));
 }());
+
+const mainApi = new MainApi({
+  baseUrl: 'https://api.news-explorer-api.gq',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+});
+const createCard = (api, obj, keyWord) => new NewsCard(mainApi, obj, keyWord, 1);
+const savedArticles = new SavedArticles(mainApi, createCard);
+const header = new Header(mainApi);

@@ -70,7 +70,7 @@ export default class MainApi {
     });
   }
 
-  saveNews(keyword, title, text, date, source, link, image) { // сохранение статьи
+  saveNews(keyword, title, text, date, source, link, image) { // сохранить статью
     return fetch(`${this.baseUrl}/articles`, {
       method: 'POST',
       headers: this.headers,
@@ -84,9 +84,20 @@ export default class MainApi {
     });
   }
 
-  deleteNews(articlesId) { // сохранение статьи
+  deleteNews(articlesId) { // удалить статью
     return fetch(`${this.baseUrl}/articles/${articlesId}`, {
       method: 'DELETE',
+      headers: this.headers,
+      credentials: 'include',
+    }).then((res) => {
+      if (!res.ok) return Promise.reject(res.status);
+      return res.json();
+    });
+  }
+
+  getNews() { // вернуть сохранёные статьи
+    return fetch(`${this.baseUrl}/articles/`, {
+      method: 'GET',
       headers: this.headers,
       credentials: 'include',
     }).then((res) => {

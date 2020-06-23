@@ -18,6 +18,7 @@ export default class Header {
     this.checkingLogin = this.checkingLogin.bind(this);
     this.render = this.render.bind(this);
     this._setHandlers();
+    this.checkingLogin(); // проверяю, залогин ли пользователь
   }
 
   _setHandlers() {
@@ -33,11 +34,24 @@ export default class Header {
           userName: res.name,
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        this.render({
+          isLoggedIn: 0,
+        });
+      });
   }
 
   render(props) { // перерисовывает шапку в зависимости от переданного аргумента — объекта props.
-    if (!props.isLoggedIn) { // пользователь не залогинен
+    if (this.header.classList.contains('header_savedArticles')) {
+      if (!props.isLoggedIn) { // пользователь не залогинен
+        document.location.href = './';
+        // выбросить на главную страницу
+      } else { // залогинен
+        this.buttonSavedArticles.classList.remove('header__link_none');
+        this.buttonExit.classList.remove('header__button_none');
+        this.buttonUser.textContent = props.userName;
+      }
+    } else if (!props.isLoggedIn) { // пользователь не залогинен
       this.buttonSavedArticles.classList.add('header__link_none');
       this.buttonAuth.classList.remove('header__button_none');
       this.buttonExit.classList.add('header__button_none');

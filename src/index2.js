@@ -1,7 +1,6 @@
 import Popup from './js/components/Popup2';
 import Form from './js/components/Form';
 import MainApi from './js/api/MainApi';
-import Auth from './js/components/Auth';
 import Header from './js/components/Header';
 
 import NewsApi from './js/api/NewsApi';
@@ -56,7 +55,6 @@ const mainApi = new MainApi({
   const formRegistration = new Form(formReg, mainApi,popupSuccess);
 }());
 const header = new Header(mainApi);
-const auth = new Auth(mainApi);
 
 const apiKey = 'eb14994f064f4a27bfe88e8a815ccd48';
 const newsApi = new NewsApi({

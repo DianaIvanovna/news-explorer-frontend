@@ -1,9 +1,11 @@
 import { formattingTime } from '../utils/utils';
 
 export default class NewsCard {
-  constructor(api, cardData, keyWord) {
+  constructor(api, cardData, keyWord, flagSavedArticles = 0) {
     this.api = api;
     this.keyWord = keyWord;
+    this.flagSavedArticles = flagSavedArticles;
+    this.cardData = cardData;
     this.title = cardData.title;
     this.publishedAt = cardData.publishedAt;
     this.description = cardData.description;
@@ -18,21 +20,24 @@ export default class NewsCard {
 
   _setHandlers() {
     this.templateBookmark.addEventListener('mouseover', () => {
-      if (this.savedArticles.classList.contains('header__link_none')) { // не залогинен
+      if (this.savedArticles.classList.contains('header__link_none') || this.flagSavedArticles) { // не залогинен
         this.templateAlert.classList.remove('hiddenElement');
       }
     });
     this.templateBookmark.addEventListener('mouseout', () => {
-      if (this.savedArticles.classList.contains('header__link_none')) { // не залогинен
+      if (this.savedArticles.classList.contains('header__link_none') || this.flagSavedArticles) { // не залогинен
         this.templateAlert.classList.add('hiddenElement');
       }
     });
-    this.templateBookmark.addEventListener('click', this.addBookmarks.bind(this));
-    // this.bookmark.addEventListener('mouseover', this.addBookmarks.bind(this));
+    this.templateBookmark.addEventListener('click', this.addAndDeleteBookmarks.bind(this));
   }
 
-  addBookmarks(event) {
-    if (!this.savedArticles.classList.contains('header__link_none')) { // залогинен
+  addAndDeleteBookmarks(event) {
+    if (this.flagSavedArticles) { // если карточка добавляется на страницу "сохраненные"
+      this._id = this.cardData._id;
+      this.deleteNews();
+      this.container.removeChild(this.newCard);
+    } else if (!this.savedArticles.classList.contains('header__link_none')) { // залогинен
       if (this.templateBookmark.classList.contains('card__bookmark_active')) {
         this.templateBookmark.classList.remove('card__bookmark_active');
         // удалить статью
@@ -60,9 +65,7 @@ export default class NewsCard {
       this.templateDate.textContent, this.templateSourse.textContent, this.url,
       this.templateImage.src)
       .then((res) => {
-        console.log(res);
         this._id = res.data._id;
-        console.log(this._id);
       })
       .catch((err) => {
         console.log(err);
@@ -70,25 +73,36 @@ export default class NewsCard {
   }
 
   create() {
-    const newCard = document.createElement('div');
-    newCard.classList.add('card');
+    this.newCard = document.createElement('div');
+    this.newCard.classList.add('card');
     // Клонируем содержимое шаблона для того, чтобы переиспользовать его несколько раз
-    newCard.append(this.template.content.cloneNode(true));
-    this.templateImage = newCard.querySelector('.card__image');
-    this.templateDate = newCard.querySelector('.card__date');
-    this.templateTitle = newCard.querySelector('.card__title');
-    this.templateText = newCard.querySelector('.card__text');
-    this.templateSourse = newCard.querySelector('.card__sourse');
-    this.templateBookmark = newCard.querySelector('.card__bookmark');
-    this.templateAlert = newCard.querySelector('.card__alert');
+    this.newCard.append(this.template.content.cloneNode(true));
+    this.templateImage = this.newCard.querySelector('.card__image');
+    this.templateDate = this.newCard.querySelector('.card__date');
+    this.templateTitle = this.newCard.querySelector('.card__title');
+    this.templateText = this.newCard.querySelector('.card__text');
+    this.templateSourse = this.newCard.querySelector('.card__sourse');
 
+    if (this.flagSavedArticles) { // если карточка добавляется на страницу "сохраненные"
+      this.templateBookmark = this.newCard.querySelector('.card__bookmark_trash');
+      this.templateKeyword = this.newCard.querySelector('.card__keyword');
+      this.container = document.querySelector('.result__container');
+      this.templateKeyword.textContent = this.keyWord;
+      this.urlToImage = this.cardData.image;
+      this.templateDate.textContent = this.cardData.date;
+    } else {
+      this.templateBookmark = this.newCard.querySelector('.card__bookmark');
+      this.templateDate.textContent = formattingTime(this.publishedAt);
+    }
+
+    this.templateAlert = this.newCard.querySelector('.card__alert');
     this.templateImage.src = this.urlToImage;
-    this.templateDate.textContent = formattingTime(this.publishedAt);
+
     this.templateTitle.textContent = this.title;
     this.templateText.textContent = this.description;
     this.templateSourse.textContent = this.source;
 
     this._setHandlers();
-    return newCard;
+    return this.newCard;
   }
 }
