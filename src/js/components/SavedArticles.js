@@ -15,15 +15,15 @@ export default class SavedArticles {
     this.getSavedArticles();
   }
 
-  getSavedArticles() {
+  getSavedArticles() { // запрашивает массив карточек, сохраненные пользователем
     this.api.getNews()
       .then((res) => {
         res.data.forEach((article) => {
           this.SavedArticles.push(article);
           this.numberSavedArticles += 1;
-          const flag = this.keywords.find((item) => item.keyword === article.keyword);
-          if (flag !== undefined) {
-            flag.number += 1;
+          const recurringNews = this.keywords.find((item) => item.keyword === article.keyword);
+          if (recurringNews !== undefined) {
+            recurringNews.number += 1;
           } else {
             this.keywords.push({
               keyword: article.keyword,

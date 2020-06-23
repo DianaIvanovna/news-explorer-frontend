@@ -1,16 +1,10 @@
-// Header. Класс, отвечающий за логику работы шапки сайта.
-// Его конструктор принимает объект опций. В опциях передайте цвет шапки,
-// так как на разных страницах он может быть разный.
-// Методы у класса Header такие:
-// render при вызове перерисовывает шапку в зависимости от переданного аргумента — объекта props.
-// У этого объекта есть два обязательных свойства:
-// isLoggedIn — залогинен ли пользователь;
-// userName — имя, которое отображается в шапке залогиненного пользователя.
 export default class Header {
   constructor(api) {
-    // this.color = color;  цвет шапки
     this.api = api;
     this.header = document.querySelector('.header');
+    this.headerMenu = document.querySelector('.header__menu');
+    this.headerBackground = document.querySelector('.background__mobile');
+    this.headerMenuClose = document.querySelector('.header__menu_close');
     this.buttonSavedArticles = document.getElementById('savedArticles'); // кнопка сохраненные статьи
     this.buttonAuth = this.header.querySelector('.header__button_auth'); // кнопка авторизироваться
     this.buttonExit = this.header.querySelector('.header__button_logout'); // кнопка выход из аккаунта
@@ -24,6 +18,18 @@ export default class Header {
   _setHandlers() {
     document.addEventListener('login', this.checkingLogin.bind(this));
     this.buttonExit.addEventListener('click', this.exit.bind(this));
+    this.headerMenu.addEventListener('click', this.openMobile.bind(this));
+    this.headerMenuClose.addEventListener('click', this.closeMobile.bind(this));
+  }
+
+  openMobile() { // открытие мобильной версии
+    this.header.classList.add('header_active');
+    this.headerBackground.classList.add('background__mobile_active');
+  }
+
+  closeMobile() { // закрытие мобильной версии
+    this.header.classList.remove('header_active');
+    this.headerBackground.classList.remove('background__mobile_active');
   }
 
   checkingLogin() { // проверка, залогинен ли пользователь
@@ -42,16 +48,15 @@ export default class Header {
   }
 
   render(props) { // перерисовывает шапку в зависимости от переданного аргумента — объекта props.
-    if (this.header.classList.contains('header_savedArticles')) {
+    if (this.header.classList.contains('header_savedArticles')) { // На странице "сохраненные статьи"
       if (!props.isLoggedIn) { // пользователь не залогинен
-        document.location.href = './';
-        // выбросить на главную страницу
+        document.location.href = './'; // выбросить пользователя на главную страницу
       } else { // залогинен
         this.buttonSavedArticles.classList.remove('header__link_none');
         this.buttonExit.classList.remove('header__button_none');
         this.buttonUser.textContent = props.userName;
       }
-    } else if (!props.isLoggedIn) { // пользователь не залогинен
+    } else if (!props.isLoggedIn) { // пользователь не залогинен и находится на главной странице
       this.buttonSavedArticles.classList.add('header__link_none');
       this.buttonAuth.classList.remove('header__button_none');
       this.buttonExit.classList.add('header__button_none');

@@ -4,14 +4,8 @@ export default class NewsCard {
   constructor(api, cardData, keyWord, flagSavedArticles = 0) {
     this.api = api;
     this.keyWord = keyWord;
-    this.flagSavedArticles = flagSavedArticles;
+    this.flagSavedArticles = flagSavedArticles; // флаг, если мы на странице "Сохраненные статьи"
     this.cardData = cardData;
-    this.title = cardData.title;
-    this.publishedAt = cardData.publishedAt;
-    this.description = cardData.description;
-    this.urlToImage = cardData.urlToImage;
-    this.source = cardData.source.name;
-    this.url = cardData.url;
     this.template = document.querySelector('.template-card');
     this.savedArticles = document.getElementById('savedArticles');
     this.saveNews = this.saveNews.bind(this);
@@ -20,7 +14,8 @@ export default class NewsCard {
 
   _setHandlers() {
     this.templateBookmark.addEventListener('mouseover', () => {
-      if (this.savedArticles.classList.contains('header__link_none') || this.flagSavedArticles) { // не залогинен
+      if (this.savedArticles.classList.contains('header__link_none') || this.flagSavedArticles) {
+      // не залогинен или находится на странице "Сохраненные статьи"
         this.templateAlert.classList.remove('hiddenElement');
       }
     });
@@ -29,11 +24,17 @@ export default class NewsCard {
         this.templateAlert.classList.add('hiddenElement');
       }
     });
-    this.templateBookmark.addEventListener('click', this.addAndDeleteBookmarks.bind(this));
+    this.newCard.addEventListener('click', this.goToNewsSite.bind(this));
   }
 
-  addAndDeleteBookmarks(event) {
-    if (this.flagSavedArticles) { // если карточка добавляется на страницу "сохраненные"
+  goToNewsSite(event) { // перейти на сайт новости
+    if (event.target.parentElement === this.templateBookmark) this.addAndDeleteBookmarks();
+    else if (!this.flagSavedArticles) window.open(this.cardData.url);
+    else window.open(this.cardData.link);
+  }
+
+  addAndDeleteBookmarks() { // Сохранить или удалить карточку
+    if (this.flagSavedArticles) { // если карточка на странице "сохраненные"
       this._id = this.cardData._id;
       this.deleteNews();
       this.container.removeChild(this.newCard);
@@ -88,19 +89,18 @@ export default class NewsCard {
       this.templateKeyword = this.newCard.querySelector('.card__keyword');
       this.container = document.querySelector('.result__container');
       this.templateKeyword.textContent = this.keyWord;
-      this.urlToImage = this.cardData.image;
+      this.templateImage.src = this.cardData.image;
       this.templateDate.textContent = this.cardData.date;
+      this.templateSourse.textContent = this.cardData.source;
     } else {
       this.templateBookmark = this.newCard.querySelector('.card__bookmark');
-      this.templateDate.textContent = formattingTime(this.publishedAt);
+      this.templateDate.textContent = formattingTime(this.cardData.publishedAt);
+      this.templateImage.src = this.cardData.urlToImage;
+      this.templateSourse.textContent = this.cardData.source.name;
     }
-
     this.templateAlert = this.newCard.querySelector('.card__alert');
-    this.templateImage.src = this.urlToImage;
-
-    this.templateTitle.textContent = this.title;
-    this.templateText.textContent = this.description;
-    this.templateSourse.textContent = this.source;
+    this.templateTitle.textContent = this.cardData.title;
+    this.templateText.textContent = this.cardData.description;
 
     this._setHandlers();
     return this.newCard;
