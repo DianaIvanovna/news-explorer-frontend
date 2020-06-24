@@ -13,4 +13,4 @@
 - Установите необходимые пакеты командой: npm i
 - Запустите сервер командой: npm run dev
 
-Или сайт можно посмотреть по ссылке https://dianaivanovna.github.io/news-explorer-frontend/
+Или сайт можно посмотреть по ссылке https://news-explorer-api.gq/
