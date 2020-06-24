@@ -31,7 +31,7 @@ export default class MainApi {
       }),
     }).then((res) => {
       if (!res.ok) return Promise.reject(res.status);
-      return res;
+      return res; // res.json() не использую т к нет тела запроса
     });
   }
 
@@ -53,7 +53,7 @@ export default class MainApi {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) return Promise.reject(res.status);
-      return res.json();
+      return res; // res.json() не использую т к нет тела запроса
     });
   }
 

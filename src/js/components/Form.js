@@ -18,8 +18,8 @@ export default class FormValidation {
 
   _setHandlers() {
     // Добавляет необходимые для валидации обработчики всем полям формы.
-    this._form.elements.forEach((el) => {
-      if (el !== this._button) el.addEventListener('input', this._checkInputValidity.bind(this));
+    this._form.elements.forEach((input) => {
+      if (input !== this._button) input.addEventListener('input', this._checkInputValidity.bind(this));
     });
     this._button.addEventListener('click', this._formSubmission.bind(this));
   }
@@ -41,16 +41,23 @@ export default class FormValidation {
   }
 
   _registration() {
+    this._form.elements.forEach((input) => {
+      if (input !== this._button) input.setAttribute('disabled', 'disabled'); // залочела поля ввода
+    });
     this._button.textContent = 'Регистрируемся...';
     this._api.signup(this._email.value, this._password.value, this._name.value)
       .then((res) => {
-        console.log(res);
+        this._form.elements.forEach((input) => {
+          if (input !== this._button) input.removeAttribute('disabled');
+        });
         this._button.textContent = 'Зарегистрироваться';
         this._popupSuccess.classList.add('popup_is-opened'); // открыла попап успешная регистрация
         this._form.parentElement.parentElement.classList.remove('popup_is-opened'); // закрыла форму регистрации
       })
       .catch((err) => {
-        console.log(err);
+        this._form.elements.forEach((input) => {
+          if (input !== this._button) input.removeAttribute('disabled');
+        });
         this._setServerError('такой пользователь уже есть');
         this._button.textContent = 'Зарегистрироваться';
       });
@@ -58,15 +65,23 @@ export default class FormValidation {
 
   _login() { // добавь, чтобы если не зашел, то попап не закрывался
     this._button.textContent = 'Выполняем вход...';
+    this._form.elements.forEach((input) => {
+      if (input !== this._button) input.setAttribute('disabled', 'disabled'); // залочела поля ввода
+    });
     this._api.signin(this._email.value, this._password.value)
       .then((res) => {
+        this._form.elements.forEach((input) => {
+          if (input !== this._button) input.removeAttribute('disabled');
+        });
         this._button.textContent = 'Войти';
         const event = new Event('login'); // выполняется событие, которое меняет шапку
         document.dispatchEvent(event);
         this._form.parentElement.parentElement.classList.remove('popup_is-opened');// закрыла форму
       })
       .catch((err) => {
-        console.log(err);
+        this._form.elements.forEach((input) => {
+          if (input !== this._button) input.removeAttribute('disabled');
+        });
         this._setServerError('Неправильные почта или пароль');
         this._button.textContent = 'Войти';
       });

@@ -5,6 +5,7 @@ export default class SavedArticles {
     this._container = document.querySelector('.result__container');
     this._titleGreeting = document.querySelector('.articles-info__subtitle');
     this._titleKeyWords = document.querySelector('.articles-info__words');
+    this._titleInfoKey = document.querySelector('.articles-info__key');
     this._buttonSavedArticles = document.querySelector('.header__button_savedArticles');
     this._savedArticles = []; // массив статей
     this._keywords = []; // массив объектов с ключевыми словами и их количеством
@@ -41,7 +42,13 @@ export default class SavedArticles {
   }
 
   _makeGreeting() { // сделать заголовок с ключевыми словами
-    this._titleGreeting.textContent = `${this._buttonSavedArticles.textContent} у вас ${this._numberSavedArticles} сохранённых статей`;
+    if (this._numberSavedArticles === 0) {
+      this._titleGreeting.textContent = `${this._buttonSavedArticles.textContent} у вас нет сохранённых статей`;
+      this._container.parentElement.classList.add('hiddenElement');
+    } else {
+      this._titleGreeting.textContent = `${this._buttonSavedArticles.textContent} у вас ${this._numberSavedArticles} сохранённых статей`;
+      this._container.parentElement.classList.remove('hiddenElement');
+    }
   }
 
   _makeTitleKeyWords() { // сделать заколовок с ключевыми словами
@@ -50,8 +57,11 @@ export default class SavedArticles {
       if (a.number === b.number) return 0;
       return -1;
     });
+    this._titleInfoKey.classList.remove('hiddenElement');
     if (this._keywords.length === 1) {
       this._titleKeyWords.textContent = this._keywords[0].keyword;
+    } else if (this._keywords.length === 0) {
+      this._titleInfoKey.classList.add('hiddenElement');
     } else if (this._keywords.length === 2) {
       this._titleKeyWords.textContent = `${this._keywords[0].keyword} `;
       this._titleKeyWords.insertAdjacentHTML('beforeend', '<span class="articles-info__key">и</span>');

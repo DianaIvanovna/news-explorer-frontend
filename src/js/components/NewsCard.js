@@ -36,41 +36,47 @@ export default class NewsCard {
   _addAndDeleteBookmarks() { // Сохранить или удалить карточку
     if (this._flagSavedArticles) { // если карточка на странице "сохраненные"
       this._id = this._cardData._id;
-      this._deleteNews();
-      this.container.removeChild(this.newCard);
+      this._deleteNews()
+        .then((res) => {
+          console.log(res);
+          this.container.removeChild(this.newCard);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else if (!this._savedArticles.classList.contains('header__link_none')) { // залогинен
       if (this._templateBookmark.classList.contains('card__bookmark_active')) {
-        this._templateBookmark.classList.remove('card__bookmark_active');
         // удалить статью
-        this._deleteNews();
+        this._deleteNews()
+          .then((res) => {
+            console.log(res);
+            this._templateBookmark.classList.remove('card__bookmark_active');
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       } else {
-        this._templateBookmark.classList.add('card__bookmark_active');
         // добавить в сохраненные
-        this._saveNews();
+        this._saveNews()
+          .then((res) => {
+            this._id = res.data._id;
+            this._templateBookmark.classList.add('card__bookmark_active');
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     }
   }
 
   _deleteNews() {
-    this._api.deleteNews(this._id)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    return this._api.deleteNews(this._id);
   }
 
   _saveNews() {
-    this._api.saveNews(this._keyWord, this._templateTitle.textContent,
+    return this._api.saveNews(this._keyWord, this._templateTitle.textContent,
       this._templateText.textContent, this._templateDate.textContent,
-      this._templateSourse.textContent, this._cardData.source.name, this._templateImage.src)
-      .then((res) => {
-        this._id = res.data._id;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      this._templateSourse.textContent, this._cardData.url, this._templateImage.src);
   }
 
   create() {
