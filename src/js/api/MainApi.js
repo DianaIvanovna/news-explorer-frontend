@@ -31,7 +31,7 @@ export default class MainApi {
       }),
     }).then((res) => {
       if (!res.ok) return Promise.reject(res.status);
-      return res.json();
+      return res;
     });
   }
 
