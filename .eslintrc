@@ -1,12 +1,14 @@
 {
     "extends": "airbnb-base",
     "rules": {
-      "no-underscore-dangle": ["error", { "allow": ["_id","_setHandlers"] }],
+      "no-underscore-dangle": "off",
       "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
       "no-console": "off",
       "global-require": 0,
       "func-names": ["error", "never"],
-      "class-methods-use-this":"off"
+      "class-methods-use-this":"off",
+      "no-unused-vars": "off",
+      "no-param-reassign": "off"
    },
    "env": {
     "browser": true

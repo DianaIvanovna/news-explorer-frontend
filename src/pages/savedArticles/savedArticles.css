@@ -7,6 +7,7 @@
 @import url("../../blocks/result/result.css");
 @import url("../../blocks/footer/footer.css");
 @import url("../../blocks/background/background.css");
+@import url("../../blocks/hiddenElement/hiddenElement.css");
 body{
   margin: 0px;
 }
